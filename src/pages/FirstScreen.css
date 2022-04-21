@@ -1,0 +1,20 @@
+.FirstScreen
+{
+    position: fixed;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    background-color: var(--primary-color);
+    z-index: 999;
+    display: flex;
+    filter: drop-shadow(0px 0px 15px black);
+
+}
+.FirstScreen img{
+
+    align-self: center;
+    position: relative;
+    margin: auto;
+    height: 500px;
+}
