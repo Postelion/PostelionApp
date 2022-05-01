@@ -1,17 +1,24 @@
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Montserrat-ExtraBold";
   src: url(font/Montserrat-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "Montserrat-light";
+  src: url(font/Montserrat-Light.ttf);
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url(font/Montserrat-Medium.ttf);
 }
 
 :root {
-  --primary-color: #242424;
-  --font-color: #f0f0f0;
+  --primary-color: #212a35;
+  --second-color: #243443;
 }
-
+html{margin:0px}
 body {
-  overflow-x: hidden;
-  margin: 0;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
+  margin: 0px;
   color:white;
   font-family: Montserrat;
   user-select: none;

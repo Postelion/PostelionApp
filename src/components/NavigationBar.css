@@ -1,0 +1,59 @@
+#NavigationBar{
+    width: 100%;
+    height: 80px;
+    position:fixed;
+    margin:0px;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    align-items: center;
+    background-color: var(--second-color);;
+    font-size: 18px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+
+#NavigationBar .logo
+{
+    height: 80px;
+    left:20px;
+    position: relative;
+    width: 80px;
+    cursor: pointer;
+}
+
+#NavigationBar .options
+{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    height: 100%;
+}
+
+#NavigationBar .options > div
+{
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: auto 3px;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#NavigationBar .options > div > span
+{
+    display: block;
+    align-self: center;
+}
+
+#NavigationBar .options > .active
+{
+
+    color:#238ae4;
+}
+
+#NavigationBar .options > .active > div
+{
+    background-color: #238ae4;
+    width: 100%;
+    height: 100%;
+}

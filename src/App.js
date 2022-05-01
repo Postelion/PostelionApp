@@ -1,17 +1,18 @@
 import './App.css';
 import Home from './pages/Home'
+import Project from './pages/Project'
 import { Routes, Route } from "react-router-dom"
-import Navbar from './components/navbar'
-import FirstScreeen from './pages/FirstScreen'
+import NavigationBar from './components/NavigationBar'
 
 function App() {
 return (
+  
   <div className="App">
-      <FirstScreeen/>
-      <Navbar route='1'/>
       <Routes>
         <Route path="/" element={ <Home/> } />
+        <Route path="/project" element={ <Project/> } />
       </Routes>
+      <NavigationBar/>
     </div>
 
     );

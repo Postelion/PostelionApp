@@ -1,6 +1,9 @@
 export default {
 
-    //Menu List
+    //Projects
+    projects:'https://api.github.com/users/Postelion/repos',
+
+    //Page
     listMenu:
     [
         {
@@ -18,11 +21,6 @@ export default {
         {
             value:'/panel',
             name:'PANEL'
-        }
-    ],
-    //Default Theme
-    defaultDarkMode:true,
-
-    //Allow Change Mode Theme
-    allowChangeModeTheme:true,
+        },
+    ]
 }
