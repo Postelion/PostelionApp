@@ -1,8 +1,10 @@
 import './App.css';
-import Home from './pages/Home'
-import Project from './pages/Project'
 import { Routes, Route } from "react-router-dom"
-import NavigationBar from './components/NavigationBar'
+import NavigationBar from './components/NavigationBar/NavigationBar'
+
+import Home from './pages/Home/Home'
+import Project from './pages/Project/Project'
+import ProjectView from './pages/ProjectView/ProjectView';
 
 function App() {
 return (
@@ -11,6 +13,7 @@ return (
       <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="/project" element={ <Project/> } />
+        <Route path="/project/:id" element={ <ProjectView/> } />
       </Routes>
       <NavigationBar/>
     </div>

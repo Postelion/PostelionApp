@@ -1,7 +1,7 @@
 import React,{useRef} from "react"
 import "./NavigationBar.css"
 import { useNavigate } from "react-router-dom";
-import config from "../config/config";
+import config from "../../config/config";
 import anime from 'animejs';
 
 class NavigationBar extends React.Component
@@ -42,10 +42,10 @@ function Option(props)
     const navigate = useNavigate();
     const onClickHandler = () => 
     {
-        if(window.location.pathname!==props.value)
+        if(window.location.pathname.split('/')[1]!==props.value)
         {
             navigate(props.value);
-            if(window.location.pathname===props.value)
+            if(window.location.pathname.split('/')[1]===props.value)
             {
                 anime({
                     targets: refdiv.current,
@@ -57,7 +57,7 @@ function Option(props)
         }
     }
         return(
-            <div onClick={onClickHandler} className={ (window.location.pathname===props.value?"active":"")}>
+            <div onClick={onClickHandler} className={ (window.location.pathname.split('/')[1]===props.value?"active":"")}>
                 <span ref={refspan}>{props.title}</span>
                 <div ref={refdiv}></div>
             </div>
