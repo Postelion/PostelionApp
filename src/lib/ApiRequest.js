@@ -58,6 +58,17 @@ export default
             callback(error);
           });
     },
+    GetCommits(full_name,callback)
+    {
+        var options = config.projects.connection_option;
+        options.url = 'https://api.github.com/repos/'+full_name+'/commits';
+        axios.request(options);
+        axios.request(options).then(function (response) {
+            callback(response.data);
+          }).catch(function (error) {
+            callback(error);
+          });
+    }
 
 
 }

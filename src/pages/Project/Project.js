@@ -2,6 +2,7 @@ import React,{useEffect}from 'react'; //React
 import './Project.css'; //CSS
 import ProjectModule from '../../components/ProjectModule/ProjectModule'; //Component
 import ApiRequest from '../../lib/ApiRequest';
+import Loading from '../../components/Loading/Loading';
 
 class Project extends React.Component
 {
@@ -32,7 +33,7 @@ class Project extends React.Component
         {
             return (
                 <div id="Project">
-                   
+                   <Loading/>
                 </div>
             ) 
         }

@@ -3,7 +3,19 @@ import './ProjectReleaseView.css';
 
 function ProjectReleaseView(props)
 {
+    function formatDescription(descr)
+    {
 
+        return (
+            <div>
+                {
+                    descr.split(/\n/g).map((data,key) =>(
+                         <span key={key}>{data}<br/></span>
+                    ))
+                }
+            </div>
+        );
+    }
 
     return(
         <div className='release'>
@@ -12,7 +24,7 @@ function ProjectReleaseView(props)
                     <a href={props.data.zipball_url}  className='download'><div>POBIERZ</div></a>
             </div>
             <div className='descr'>
-                    <span>{props.data.body}</span>
+                    <span>{formatDescription(props.data.body)}</span>
             </div>
         </div>
     )
