@@ -1,0 +1,25 @@
+#Error
+{
+    position: absolute;
+    top:100px;
+    left:20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    font-size:25px
+}
+
+#Error img
+{
+    align-self: center;
+    width: 250px;
+    margin-top: 50px;
+}
+
+#Error .code
+{
+    font-size: 150px;
+    margin: 25px;
+    font-weight: bold;
+}
