@@ -1,6 +1,7 @@
 export default {
 
-    name:"DOMINIK KORDYLEWICZ",
+    name:"DOMINIK",
+    surname:'KORDYLEWICZ',
     school:
     [
         {

@@ -6,12 +6,90 @@
     right: 20px;
     display: flex;
     flex-direction: column;
-    gap:25px
+    min-width: 750px;
+    gap:25px;
+    user-select:text;
 }
-#CV .cv
+#CV .CV
 {
     display: flex;
+    flex-direction: row;
+    background-color: #20364c;
+    border-radius: 15px;
+}
+#CV .CV .left 
+{
+    width: 50%;
+    min-width: 500px;
+}
+#CV .CV .right
+{
+    width: 50%;
+    min-width: 250px;
+}
+#CV .CV .right img
+{
+    width: 200px;
+    margin: 25px;
+    float: right;
+    border-radius: 15px;
+}
+#CV .CV .left .name
+{
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    font-family: Montserrat-ExtraBold;
+    font-size: 40px;
+}
+#CV .CV a{
+    font-style: none;
+    text-decoration: none;
+    line-break: none;
+    line-clamp: none;
+    color:white;
+}
+#CV .CV .left .contact
+{
+    margin-left: 25px;
+    margin-top: 25px;
     flex-direction: column;
+    gap:10px;
+    display: flex;
+}
+#CV .CV .left .school
+{
+
+    margin-top: 25px;
+    display: flex;
+}
+#CV .CV .left .school .title
+{
+    background-color: white;
+    color:#20364c;
+    text-align: left;
+    font-family: Montserrat-ExtraBold;
+    font-size: 25px;
+    padding-left: 25px;
+    padding-right: 100px;
+    align-self: center;
+    height: 50px;
+    border-radius: 0px 25px 25px 0px;
+}
+#CV .CV .left .school .title span{
+    position:relative;
+    top:10px
+}
+#CV .CV .left .contact >div{
+    display: flex;
+    gap:10px;
+}
+#CV .CV .left .contact .material-icons
+{
+    margin-top: 5px;
+}
+#CV .CV .left .contact >div >div{
+    align-self: center;
 }
 #CV .download
 {
