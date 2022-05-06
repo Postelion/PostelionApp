@@ -13,6 +13,8 @@
 #CV .CV
 {
     display: flex;
+    max-width: 1280px;
+    align-self: center;
     flex-direction: row;
     background-color: #20364c;
     border-radius: 15px;
@@ -57,13 +59,16 @@
     gap:10px;
     display: flex;
 }
-#CV .CV .left .school
+#CV .CV .left .section
 {
-
+    text-align: left;
+    align-self:flex-start;
     margin-top: 25px;
+    gap:25px;
     display: flex;
+    flex-direction: column;
 }
-#CV .CV .left .school .title
+#CV .CV .left .section .title
 {
     background-color: white;
     color:#20364c;
@@ -71,12 +76,19 @@
     font-family: Montserrat-ExtraBold;
     font-size: 25px;
     padding-left: 25px;
+    max-width: 350px;
     padding-right: 100px;
-    align-self: center;
+    align-self: left;
     height: 50px;
     border-radius: 0px 25px 25px 0px;
 }
-#CV .CV .left .school .title span{
+#CV .CV .left .section .content
+{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#CV .CV .left .section .title span{
     position:relative;
     top:10px
 }

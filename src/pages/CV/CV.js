@@ -36,19 +36,63 @@ class CV extends React.Component
                                 <div><a href={"tel:"+CVconfig.contact[2]}>{CVconfig.contact[2]}</a></div>
                             </div>
                         </div>
-                        <div className='school'>
+                        <div className='section'>
                             <div className='title'>
                                 <span>WYKSZTAŁCENIE</span>
+                            </div>
+                            <div className='content'>
+                                {
+                                    CVconfig.school.map((data,index) =>
+                                    <div key={index} style={{marginLeft:'20px'}}>
+                                    <strong style={{fontSize:'20px',padding:'5px'}}>{data.name}</strong>
+                                    <div style={{padding:'5px'}}>{data.as}</div>
+                                    <div  style={{paddingLeft:'5px'}}>{data.date}</div>
+                                    </div>
+                                  )
+                                }
+                            </div>
+                        </div>
+
+                        <div className='section'>
+                            <div className='title'>
+                                <span>DOŚWIADCZENIE</span>
+                            </div>
+                            <div className='content'>
+                                {
+                                    CVconfig.experience.map((data,index) =>
+                                    <div key={index} style={{marginLeft:'20px'}}>
+                                    <strong style={{fontSize:'20px',padding:'5px'}}>{data.name}</strong>
+                                    <div style={{padding:'5px'}}>{data.date}</div>
+                                    <div style={{fontFamily:'Montserrat-light',padding:'5px'}}>{data.description}</div>
+                                    </div>
+                                  )
+                                }
+                            </div>
+                        </div>
+
+                        <div className='section'>
+                            <div className='title'>
+                                <span>O Sobie</span>
+                            </div>
+                            <div className='content'>
+                                <div style={{marginLeft:'25px',paddingBottom:'50px'}}>
+                                {
+                                   CVconfig.about
+                                }
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className='right'>
                         <img src={avatar}/>
+                        <div className='infos'>
 
+                        </div>
                     </div>
                 </div>
-               <div className='download' onClick={()=>{pdf.Generate(this.company.current.value);}}>POBIERZ JAKO PDF</div>
-               <input ref={this.company} type="text" placeholder='NAZWA FIRMY'/>
+                <input style={{margin:'5px'}} ref={this.company} type="text" placeholder='NAZWA FIRMY'/>
+               <div style={{marginBottom:'25px'}} className='download' onClick={()=>{pdf.Generate(this.company.current.value);}}>POBIERZ JAKO PDF</div>
+
             </div>
         )
     }
