@@ -27,11 +27,14 @@
 #CV .CV .right
 {
     width: 50%;
+    display: flex;
+    flex-direction: column;
     min-width: 250px;
 }
 #CV .CV .right img
 {
     width: 200px;
+    align-self:flex-end;
     margin: 25px;
     float: right;
     border-radius: 15px;

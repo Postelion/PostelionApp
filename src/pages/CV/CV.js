@@ -85,8 +85,13 @@ class CV extends React.Component
                     </div>
                     <div className='right'>
                         <img src={avatar}/>
-                        <div className='infos'>
+                        <div style={{height:'100%',width:'100%',alignSelf:'flex-end'}}>
+                            <svg height="1000" width="500" style={{float:'right'}}>
+                                <path d="M 500,0 L100,50 Q0,60 5,150 L30,850 Q30,900 60,900 L500,950" fill='white' />
+                            </svg>
+                            <div style={{backgroundColor:'red',width:'50px',height:'50px',position:'relative',left:'580px'}}>
 
+                            </div>
                         </div>
                     </div>
                 </div>
