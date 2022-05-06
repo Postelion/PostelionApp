@@ -62,6 +62,39 @@
     gap:10px;
     display: flex;
 }
+
+#CV .CV .right .section
+{
+    text-align: right;
+    align-self:flex-end;
+    float:right;
+    position: relative;
+    top:50px;
+    margin-top: 25px;
+    gap:25px;
+    display: flex;
+    flex-direction: column;
+}
+#CV .CV .right .section .title
+{
+    background-color: #20364c;
+    color:white;
+    display: flex;
+    text-align: left;
+    font-family: Montserrat-ExtraBold;
+    font-size: 25px;
+    padding-right: 25px;
+    max-width: 350px;
+    padding-left: 100px;
+    align-self: right;
+    height: 50px;
+    border-radius: 25px 0px 0px 25px;
+}
+#CV .CV .right .section .title span
+{
+    position: relative;
+    align-self: center;
+}
 #CV .CV .left .section
 {
     text-align: left;
@@ -75,6 +108,7 @@
 {
     background-color: white;
     color:#20364c;
+    display: flex;
     text-align: left;
     font-family: Montserrat-ExtraBold;
     font-size: 25px;

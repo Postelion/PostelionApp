@@ -7,11 +7,16 @@ import avatar from './avatar.jpg';
 
 class CV extends React.Component
 {
+    changecompany()
+    {
+       this.setState({company:this.company.current.value});
+    }
 
     constructor(props)
     {
         super(props);
         this.company = React.createRef();
+        this.state = {company:''};
     }
 
     render()
@@ -82,20 +87,21 @@ class CV extends React.Component
                                 </div>
                             </div>
                         </div>
+                        <div style={{textAlign:'left',marginLeft:'25px',marginTop:'100px'}}>
+                        Wyrazam zgode na przetwarzanie moich danych osobowych przez {this.state.company} w celu
+                        prowadzenia rekrutacji na aplikowane przeze mnie stanowisko.
+                        </div>
                     </div>
                     <div className='right'>
                         <img src={avatar}/>
-                        <div style={{height:'100%',width:'100%',alignSelf:'flex-end'}}>
-                            <svg height="1000" width="500" style={{float:'right'}}>
-                                <path d="M 500,0 L100,50 Q0,60 5,150 L30,850 Q30,900 60,900 L500,950" fill='white' />
-                            </svg>
-                            <div style={{backgroundColor:'red',width:'50px',height:'50px',position:'relative',left:'580px'}}>
-
-                            </div>
+                        <div style={{height:'1000px',width:'500px',alignSelf:'flex-end',backgroundImage:'url(./static/side.png)',backgroundRepeat:'no-repeat'}}>
+                            <div className='section' >
+                               <div className='title'><span>UMIEJĘTNOŚCI</span></div> 
+                            </div>  
                         </div>
                     </div>
                 </div>
-                <input style={{margin:'5px'}} ref={this.company} type="text" placeholder='NAZWA FIRMY'/>
+                <input style={{margin:'5px'}} onChange={()=>{this.changecompany();}} ref={this.company} type="text" placeholder='NAZWA FIRMY'/>
                <div style={{marginBottom:'25px'}} className='download' onClick={()=>{pdf.Generate(this.company.current.value);}}>POBIERZ JAKO PDF</div>
 
             </div>
