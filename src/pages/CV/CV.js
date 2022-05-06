@@ -4,6 +4,7 @@ import pdf from '../../components/PDFCreator/PDFCreator';
 import CVconfig from '../../config/cv';
 import MaterialIcon from 'material-icons-react';
 import avatar from './avatar.jpg';
+import CircularProgress from '@mui/material/CircularProgress';
 
 class CV extends React.Component
 {
@@ -97,6 +98,7 @@ class CV extends React.Component
                         <div style={{height:'1000px',width:'500px',alignSelf:'flex-end',backgroundImage:'url(./static/side.png)',backgroundRepeat:'no-repeat'}}>
                             <div className='section' >
                                <div className='title'><span>UMIEJĘTNOŚCI</span></div> 
+                               <Skill value={25} name="C#"/>
                             </div>  
                         </div>
                     </div>
@@ -108,6 +110,16 @@ class CV extends React.Component
         )
     }
 
+}
+
+function Skill(props)
+{
+    return(
+        <div style={{backgroundColor:'red',width:'100px',height:'100px'}}>
+            <CircularProgress variant="determinate" value={props.value} size={100} thickness={7}></CircularProgress>
+            <CircularProgress variant="determinate" value={100} size={100} thickness={7}></CircularProgress>
+        </div>
+    )
 }
 
 export default CV;
