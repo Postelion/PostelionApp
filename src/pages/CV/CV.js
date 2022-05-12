@@ -5,6 +5,7 @@ import CVconfig from '../../config/cv';
 import MaterialIcon from 'material-icons-react';
 import avatar from './avatar.jpg';
 import CircularProgress from '@mui/material/CircularProgress';
+import { createTheme } from '@mui/material/styles';
 
 class CV extends React.Component
 {
@@ -88,7 +89,7 @@ class CV extends React.Component
                                 </div>
                             </div>
                         </div>
-                        <div style={{textAlign:'left',marginLeft:'25px',marginTop:'100px'}}>
+                        <div style={{textAlign:'left',marginLeft:'25px',marginTop:'100px',marginBottom:'100px'}}>
                         Wyrazam zgode na przetwarzanie moich danych osobowych przez {this.state.company} w celu
                         prowadzenia rekrutacji na aplikowane przeze mnie stanowisko.
                         </div>
@@ -97,8 +98,18 @@ class CV extends React.Component
                         <img src={avatar}/>
                         <div style={{height:'1000px',width:'500px',alignSelf:'flex-end',backgroundImage:'url(./static/side.png)',backgroundRepeat:'no-repeat'}}>
                             <div className='section' >
-                               <div className='title'><span>UMIEJĘTNOŚCI</span></div> 
-                               <Skill value={25} name="C#"/>
+                               <div className='title'><span>UMIEJĘTNOŚCI</span></div>
+                               <div style={{display:'grid',gridTemplateColumns: 'auto auto auto',gap:'25px'}}>
+                                    <Skill value={85} name="C#" FontSize={'23px'}/>
+                                    <Skill value={80} name="PHP" FontSize={'18px'}/>
+                                    <Skill value={85} name="HTML" FontSize={'16px'}/>
+                                    <Skill value={85} name="CSS" FontSize={'18px'}/>
+                                    <Skill value={90} name="JS" FontSize={'18px'}/>
+                                    <Skill value={70} name="C++" FontSize={'18px'}/>
+                                </div> 
+                                <div className='title'><span>JĘZYKI</span></div>
+                                    <SkillLinear name='Angielski' value={85}/>
+                                    <SkillLinear name='Niemiecki' value={30}/>
                             </div>  
                         </div>
                     </div>
@@ -114,12 +125,42 @@ class CV extends React.Component
 
 function Skill(props)
 {
+    const theme = createTheme({
+        palette:{
+            primary:{
+                    main: '#20364c'
+            }
+        }
+    })
     return(
-        <div style={{backgroundColor:'red',width:'100px',height:'100px'}}>
-            <CircularProgress variant="determinate" value={props.value} size={100} thickness={7}></CircularProgress>
-            <CircularProgress variant="determinate" value={100} size={100} thickness={7}></CircularProgress>
+        <div style={{width:'100px',height:'100px',display:'grid'}}>
+            <CircularProgress theme={theme} variant="determinate" color='primary' value={props.value} size={100} thickness={7}></CircularProgress>
+            <div style={{color:'#20364c',
+            fontFamily:'Montserrat-ExtraBold',
+            position:'absolute',
+            display:'grid',
+            width:'100px',
+            height:'100px',
+            }}><span style={{textAlign:'center',alignSelf:'center',fontSize:props.FontSize}}>{props.name}</span></div>
         </div>
     )
+}
+
+function SkillLinear(props)
+{
+    var widthValue = 350 / 100 * props.value;
+    return(
+        
+        <div style={{color:'black',display:'flex',flexDirection:'column',position:'relative'}}>
+            <div style={{textAlign:'left',marginBottom:'15px',position:'relative',left:'50px'}}>{props.name}</div>
+            <div style={{width:'350px',height:'5px',backgroundColor:'#8796a1',position:'relative',left:'50px'}}>
+                <div style={{backgroundColor:'#20364c',width:widthValue+'px',height:'5px'}}>
+
+                </div>
+            </div>
+        </div>
+    )
+    
 }
 
 export default CV;

@@ -70,29 +70,34 @@
     float:right;
     position: relative;
     top:50px;
+    width: 450px;
     margin-top: 25px;
-    gap:25px;
+    gap:50px;
     display: flex;
+    
     flex-direction: column;
 }
 #CV .CV .right .section .title
 {
     background-color: #20364c;
+    flex-direction: row-reverse;
     color:white;
     display: flex;
-    text-align: left;
+    text-align: right;
+    align-self: flex-end;
     font-family: Montserrat-ExtraBold;
     font-size: 25px;
     padding-right: 25px;
     max-width: 350px;
+    width: 250px;
     padding-left: 100px;
-    align-self: right;
     height: 50px;
     border-radius: 25px 0px 0px 25px;
 }
 #CV .CV .right .section .title span
 {
     position: relative;
+    text-align: right;
     align-self: center;
 }
 #CV .CV .left .section
