@@ -33,5 +33,15 @@ export default {
             value:'panel',
             name:'PANEL'
         },
-    ]
+    ],
+
+    //Panel
+    panel:{
+        services:[
+            {
+                name:"F1 Picker API",
+                url:'/services/F1picker'
+            }
+        ]
+    }
 }
