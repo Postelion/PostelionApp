@@ -24,7 +24,6 @@ class Panel extends React.Component
 
 function Services(props)
 {
-//asd
     return(
         <div className="option">
             <div>{props.name}</div>
