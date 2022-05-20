@@ -14,7 +14,7 @@ class Panel extends React.Component
             <div id="Panel">
                 <div className="services">
                     Usługi
-                    <Services name="Usługa" url="url"/>
+                    <Services name="API strony" url="url"/>
 
                 </div>
             </div>
@@ -28,7 +28,6 @@ function Services(props)
     return(
         <div className="option">
             <div>{props.name}</div>
-            <div>AKTYWNA</div>
         </div>
     );
 }
