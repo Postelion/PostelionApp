@@ -14,10 +14,6 @@ class CV extends React.Component
 {
       
 
-    changecompany()
-    {
-       this.setState({company:this.company.current.value});
-    }
 
     constructor(props)
     {
@@ -31,6 +27,10 @@ class CV extends React.Component
     {
         library.GetDefaultCV(Cookies.get('token'),(data)=>{
             if(data.status==200){
+                library.GetUserGet(Cookies.get('token'),(user)=>{
+                    this.userName = user.data.name;
+                    this.setState({loaded:true});
+                });
                 this.CVconfig = data.data;
                 this.setState({loaded:true});
             }
@@ -115,7 +115,7 @@ class CV extends React.Component
                             </div>
                         </div>
                         <div style={{textAlign:'left',marginLeft:'25px',marginTop:'100px',marginBottom:'100px'}}>
-                        Wyrazam zgode na przetwarzanie moich danych osobowych przez {this.state.company} w celu
+                        Wyrazam zgode na przetwarzanie moich danych osobowych przez {this.userName} w celu
                         prowadzenia rekrutacji na aplikowane przeze mnie stanowisko.
                         </div>
                     </div>
@@ -139,8 +139,7 @@ class CV extends React.Component
                         </div>
                     </div>
                 </div>
-                <input style={{margin:'5px'}} onChange={()=>{this.changecompany();}} ref={this.company} type="text" placeholder='NAZWA FIRMY'/>
-               <div style={{marginBottom:'25px'}} className='download' onClick={()=>{pdf.Generate(this.company.current.value);}}>POBIERZ JAKO PDF</div>
+               <div style={{marginBottom:'25px'}} className='download' onClick={()=>{pdf.Generate(this.userName);}}>POBIERZ JAKO PDF</div>
 
             </div>
         )
