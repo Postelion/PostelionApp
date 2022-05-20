@@ -1,7 +1,7 @@
-import React from 'react'
-import './CV.css'
+import React from 'react';
+import './CV.css';
+import Loading from '../../components/Loading/Loading';
 import pdf from '../../components/PDFCreator/PDFCreator';
-import CVconfig from '../../config/cv';
 import MaterialIcon from 'material-icons-react';
 import avatar from './avatar.jpg';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -18,29 +18,43 @@ class CV extends React.Component
     {
         super(props);
         this.company = React.createRef();
-        this.state = {company:''};
+        this.state = {company:'',loaded:false};
+    }
+
+    async componentDidMount()
+    {
+        
+        fetch('http://localhost:3001/cv/default')
+            .then(async response => {
+                this.CVconfig = await response.json();
+                this.setState({loaded:true});
+            })
     }
 
     render()
     {
+
+        if(this.state.loaded)
+        {
+            console.log()
         return (
             <div id="CV">
                 <div className='CV'>
                     <div className='left'>
 
-                        <div className='name'>{CVconfig.name}<br/>{CVconfig.surname}</div>
+                        <div className='name'>{this.CVconfig.data.name}<br/>{this.CVconfig.data.surname}</div>
                         <div className='contact'>
                             <div>
                                 <MaterialIcon icon="email" color='white' />
-                                <div><a href={"mailto:"+CVconfig.contact[0]}>{CVconfig.contact[0]}</a></div>
+                                <div><a href={"mailto:"+this.CVconfig.data.email}>{this.CVconfig.data.email}</a></div>
                             </div>
                             <div>
                                 <MaterialIcon icon="home" color='white' />
-                                <div><a href="https://goo.gl/maps/r6snRnTD3BFrBFEG8" target="_blank">{CVconfig.contact[1]}</a></div>
+                                <div><a href="https://goo.gl/maps/r6snRnTD3BFrBFEG8" target="_blank">{this.CVconfig.data.adress}</a></div>
                             </div>
                             <div>
                                 <MaterialIcon icon="call" color='white' />
-                                <div><a href={"tel:"+CVconfig.contact[2]}>{CVconfig.contact[2]}</a></div>
+                                <div><a href={"tel:"+this.CVconfig.data.phone}>{this.CVconfig.data.phone}</a></div>
                             </div>
                         </div>
                         <div className='section'>
@@ -49,7 +63,7 @@ class CV extends React.Component
                             </div>
                             <div className='content'>
                                 {
-                                    CVconfig.school.map((data,index) =>
+                                    this.CVconfig.data.schools.map((data,index) =>
                                     <div key={index} style={{marginLeft:'20px'}}>
                                     <strong style={{fontSize:'20px',padding:'5px'}}>{data.name}</strong>
                                     <div style={{padding:'5px'}}>{data.as}</div>
@@ -66,7 +80,7 @@ class CV extends React.Component
                             </div>
                             <div className='content'>
                                 {
-                                    CVconfig.experience.map((data,index) =>
+                                    this.CVconfig.data.experience.map((data,index) =>
                                     <div key={index} style={{marginLeft:'20px'}}>
                                     <strong style={{fontSize:'20px',padding:'5px'}}>{data.name}</strong>
                                     <div style={{padding:'5px'}}>{data.date}</div>
@@ -84,7 +98,7 @@ class CV extends React.Component
                             <div className='content'>
                                 <div style={{marginLeft:'25px',paddingBottom:'50px'}}>
                                 {
-                                   CVconfig.about
+                                   this.CVconfig.data.about
                                 }
                                 </div>
                             </div>
@@ -119,6 +133,8 @@ class CV extends React.Component
 
             </div>
         )
+       }
+       else {return (<div id="CV"><Loading/></div>)}
     }
 
 }
