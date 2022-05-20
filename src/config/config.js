@@ -1,5 +1,9 @@
 export default {
 
+
+    //ConfigApi
+    ConfigApi:'http://localhost:3001/',
+
     //Projects
     projects:
     {

@@ -8,6 +8,7 @@ import Project from './pages/Project/Project'
 import ProjectView from './pages/ProjectView/ProjectView';
 import Panel from './pages/Panel/Panel';
 import CV from './pages/CV/CV';
+import Login from './pages/Login/Login';
 
 function App() {
 return (
@@ -19,6 +20,7 @@ return (
         <Route path="/project" element={ <Project/> } />
         <Route path="/project/:id" element={ <ProjectView/> } />
         <Route path="/panel" element={ <Panel/> }/>
+        <Route path="/login/:token" element={ <Login/> }/>
         <Route path='*' element={ <Error/> } />
       </Routes>
       <NavigationBar/>

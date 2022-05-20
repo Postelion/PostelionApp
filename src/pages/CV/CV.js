@@ -4,11 +4,16 @@ import Loading from '../../components/Loading/Loading';
 import pdf from '../../components/PDFCreator/PDFCreator';
 import MaterialIcon from 'material-icons-react';
 import avatar from './avatar.jpg';
+import library from '../../lib/ApiRequest';
 import CircularProgress from '@mui/material/CircularProgress';
 import { createTheme } from '@mui/material/styles';
+import NoAuth from '../../components/NoAuth/NoAuth';
+import Cookies from 'js-cookie';
 
 class CV extends React.Component
 {
+      
+
     changecompany()
     {
        this.setState({company:this.company.current.value});
@@ -16,19 +21,25 @@ class CV extends React.Component
 
     constructor(props)
     {
+        
         super(props);
         this.company = React.createRef();
-        this.state = {company:'',loaded:false};
+        this.state = {company:'',loaded:false,security:false,not_found:false};
     }
 
-    async componentDidMount()
+    componentDidMount()
     {
-        
-        fetch('http://localhost:3001/cv/default')
-            .then(async response => {
-                this.CVconfig = await response.json();
+        library.GetDefaultCV(Cookies.get('token'),(data)=>{
+            if(data.status==200){
+                this.CVconfig = data.data;
                 this.setState({loaded:true});
-            })
+            }
+            else if (data.status==403)
+            {
+                this.setState({security:true});
+            }
+        });
+        
     }
 
     render()
@@ -36,7 +47,7 @@ class CV extends React.Component
 
         if(this.state.loaded)
         {
-            console.log()
+           
         return (
             <div id="CV">
                 <div className='CV'>
@@ -134,7 +145,15 @@ class CV extends React.Component
             </div>
         )
        }
-       else {return (<div id="CV"><Loading/></div>)}
+       else {
+           if(this.state.security)
+           {
+            return (<div id="CV"><NoAuth/></div>)
+           }
+           else{
+            return (<div id="CV"><Loading/></div>)
+           }
+        }
     }
 
 }

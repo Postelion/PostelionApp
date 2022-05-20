@@ -68,6 +68,14 @@ export default
           }).catch(function (error) {
             callback(error);
           });
+    },
+    GetDefaultCV(token,callback)
+    {
+      axios.get(config.ConfigApi+"cv/default",{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    GetUserGet(token,callback)
+    {
+      axios.get(config.ConfigApi+"user/get",{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     }
 
 
