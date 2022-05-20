@@ -9,7 +9,7 @@ export default {
             method: 'GET',
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Bearer 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'
+                'Authorization': 'Bearer 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'
             },
         }
     },
