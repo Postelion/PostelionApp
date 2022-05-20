@@ -76,6 +76,14 @@ export default
     GetUserGet(token,callback)
     {
       axios.get(config.ConfigApi+"user/get",{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    GetServices(token,callback)
+    {
+      axios.get(config.ConfigApi+"services/get",{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    CheckService(token,link,callback)
+    {
+      axios.get(config.ConfigApi+link,{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     }
 
 

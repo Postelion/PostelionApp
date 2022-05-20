@@ -47,7 +47,6 @@ class CV extends React.Component
 
         if(this.state.loaded)
         {
-           
         return (
             <div id="CV">
                 <div className='CV'>
@@ -125,16 +124,19 @@ class CV extends React.Component
                             <div className='section' >
                                <div className='title'><span>UMIEJĘTNOŚCI</span></div>
                                <div style={{display:'grid',gridTemplateColumns: 'auto auto auto',gap:'25px'}}>
-                                    <Skill value={85} name="C#" FontSize={'23px'}/>
-                                    <Skill value={80} name="PHP" FontSize={'18px'}/>
-                                    <Skill value={85} name="HTML" FontSize={'16px'}/>
-                                    <Skill value={85} name="CSS" FontSize={'18px'}/>
-                                    <Skill value={90} name="JS" FontSize={'18px'}/>
-                                    <Skill value={70} name="C++" FontSize={'18px'}/>
+                                
+                                {
+                                    this.CVconfig.data.skills.map((data,index)=>
+                                    <Skill key={index} value={data.level} name={data.name}/>
+                                    )
+                                }
                                 </div> 
                                 <div className='title'><span>JĘZYKI</span></div>
-                                    <SkillLinear name='Angielski' value={85}/>
-                                    <SkillLinear name='Niemiecki' value={30}/>
+                                {
+                                    this.CVconfig.data.languages.map((data,index)=>
+                                    <SkillLinear key={index} name={data.name} value={data.level}/>
+                                    )
+                                }
                             </div>  
                         </div>
                     </div>
@@ -168,7 +170,7 @@ function Skill(props)
     })
     return(
         <div style={{width:'100px',height:'100px',display:'grid'}}>
-            <CircularProgress theme={theme} variant="determinate" color='primary' value={props.value} size={100} thickness={7}></CircularProgress>
+            <CircularProgress theme={theme} variant="determinate" color='primary' value={props.value*10} size={100} thickness={7}></CircularProgress>
             <div style={{color:'#20364c',
             fontFamily:'Montserrat-ExtraBold',
             position:'absolute',
@@ -182,7 +184,7 @@ function Skill(props)
 
 function SkillLinear(props)
 {
-    var widthValue = 350 / 100 * props.value;
+    var widthValue = 350 / 100 * (props.value*10);
     return(
         
         <div style={{color:'black',display:'flex',flexDirection:'column',position:'relative'}}>

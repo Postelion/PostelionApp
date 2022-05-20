@@ -21,11 +21,39 @@
     width: 100%;
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
-#Panel .services .option
+#Panel .services .check
 {
-    background-Color:#00b074;
-    width:350px;
+    /* background-Color:#00b074; */
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+    border: 2px solid #ffffff;
     align-Self:center;
+    text-align: left;
+    margin:25px;
+    padding:10px;
+    border-radius:5px
+}
+#Panel .services .checked
+{
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+    border: 2px solid #00b074;
+    align-Self:center;
+    text-align: left;
+    margin:25px;
+    padding:10px;
+    border-radius:5px
+}
+#Panel .services .broken
+{
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+    border: 2px solid #ad2c05;
+    align-Self:center;
+    text-align: left;
     margin:25px;
     padding:10px;
     border-radius:5px

@@ -9017,6 +9017,11 @@
     "convert-source-map" "^1.6.0"
     "source-map" "^0.7.3"
 
+"vanta@^0.5.22":
+  "integrity" "sha512-Y58U1SjHU6HeIuwq+te7eonyi7LWzKqyPDjZyQ7Kb6Zy4ampNJHRIUZvf1Pwl6uTC6Qi6P9fUYDsUVQDHq0KKg=="
+  "resolved" "https://registry.npmjs.org/vanta/-/vanta-0.5.22.tgz"
+  "version" "0.5.22"
+
 "vary@~1.1.2":
   "integrity" "sha1-IpnwLG3tMNSllhsLn3RSShj2NPw="
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
