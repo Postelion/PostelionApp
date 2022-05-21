@@ -5,15 +5,36 @@
     bottom:25px;
     top:25px;
     left:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 #Admin .code
 {
     outline: none;
     border: none;
     text-align: center;
+    width: 350px;
     font-family: Montserrat-ExtraBold;
     box-shadow: 0px 0px 15px rgba(0, 0, 15, 0.2);
     border-radius: 25px;
     padding: 10px;
     font-size: 25px;
 } 
+
+#Admin span{
+    margin: 35px;
+    font-size: 25px;
+}
+#Admin .accept{
+    margin: 25px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 15, 0.2);
+    border: none;
+    outline: none;
+    width: 200px;
+    height: 40px;
+    font-family: Montserrat-ExtraBold;
+}
+#Admin .accept:hover{cursor: pointer;}
