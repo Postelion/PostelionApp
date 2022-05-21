@@ -1,5 +1,6 @@
 import axios from 'axios';
 import config from '../config/config';
+import Cookies from 'js-cookie';
 
 export default
 {
@@ -69,21 +70,25 @@ export default
             callback(error);
           });
     },
-    GetDefaultCV(token,callback)
+    GetDefaultCV(callback)
     {
-      axios.get(config.ConfigApi+"cv/default",{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios.get(config.ConfigApi+"cv/default",{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
-    GetUserGet(token,callback)
+    GetUserGet(callback)
     {
-      axios.get(config.ConfigApi+"user/get",{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios.get(config.ConfigApi+"user/get",{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
-    GetServices(token,callback)
+    GetServices(callback)
     {
-      axios.get(config.ConfigApi+"services/get",{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios.get(config.ConfigApi+"services/get",{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
-    CheckService(token,link,callback)
+    CheckService(link,callback)
     {
-      axios.get(config.ConfigApi+link,{ params:{token:token}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios.get(config.ConfigApi+link,{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    GetModules(callback)
+    {
+      axios.get(config.ConfigApi+'modules/get',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     }
 
 

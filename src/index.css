@@ -12,15 +12,16 @@
 }
 
 :root {
-  --primary-color: #212a35;
-  --second-color: #243443;
+  --background: #4d4d4d;
 }
 html{margin:0px}
 body {
-  background: var(--primary-color);
+ background-color: var(--background);
   margin: 0px;
   color:white;
   font-family: Montserrat;
   user-select: none;
 }
+
+
 

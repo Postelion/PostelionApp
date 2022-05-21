@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
 import NavigationBar from './components/NavigationBar/NavigationBar'
+import React,{useState} from 'react';
 
 import Error from './pages/Error/Error';
 import Home from './pages/Home/Home'
@@ -9,8 +10,11 @@ import ProjectView from './pages/ProjectView/ProjectView';
 import Panel from './pages/Panel/Panel';
 import CV from './pages/CV/CV';
 import Login from './pages/Login/Login';
+import Admin from './pages/Admin/Admin';
+import config from "./config/config";
 
 function App() {
+  document.documentElement.style.setProperty('--background',config.GetTheme().Background);
 return (
   
   <div className="App">
@@ -21,6 +25,7 @@ return (
         <Route path="/project/:id" element={ <ProjectView/> } />
         <Route path="/panel" element={ <Panel/> }/>
         <Route path="/login/:token" element={ <Login/> }/>
+        <Route path="/admin" element={ <Admin/> }/>
         <Route path='*' element={ <Error/> } />
       </Routes>
       <NavigationBar/>
@@ -29,5 +34,6 @@ return (
     );
 
   }
+
 
 export default App;
