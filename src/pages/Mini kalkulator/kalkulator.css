@@ -1,0 +1,41 @@
+#kalkulatorTlo
+{
+    background-color: aqua;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    position: absolute;
+    display: grid;
+    align-items: center;
+}
+
+#kalkulator
+{
+    margin-left: 250px;
+    background-image:url('http://localhost:3000/static/calculator.png');
+    width: 561px;
+    height: 670px;
+    box-shadow: 0px 0px 25px black;
+    background-position: center;
+    border-radius:25px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

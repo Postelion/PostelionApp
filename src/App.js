@@ -13,6 +13,7 @@ import Login from './pages/Login/Login';
 import Admin from './pages/Admin/Admin';
 import config from "./config/config";
 import Test from './pages/test';
+import Kalkulator from './pages/Mini kalkulator/kalkulator';
 
 function App() {
   document.documentElement.style.setProperty('--background',config.GetTheme().Background);
@@ -28,6 +29,7 @@ return (
         <Route path="/login/:token" element={ <Login/> }/>
         <Route path="/admin" element={ <Admin/> }/>
         <Route path="/test" element={ <Test/> }/>
+        <Route path='/kalkulator' element={<Kalkulator/>}/>
         <Route path='*' element={ <Error/> } />
       </Routes>
       {/* <NavigationBar/> */}

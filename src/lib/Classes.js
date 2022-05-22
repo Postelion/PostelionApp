@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{} from "react";
 
 export const ApiComponent = class ApiComponentClass extends React.Component
 {
@@ -21,14 +21,15 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     }
     StartRequest()
     {
-        const status = 'Success';
+        let status = 'Success';
         for (let index = 0; index < this.requests.length; index++) {
             try{
                 this.requests[index].req((data)=>{
-                
+                    
+                    //Tworzenie jakies klasy
                     this.requests[index].status = data.status;
                     this.requests[index].response = data.data;
-                    data.status==403?status='NoAuth':(data.status!=200?status='Error':null);
+//                    data.status==403?status='NoAuth':(data.status!=200?status='Error':null);
 
                 },this.requests[index].args);
             }
@@ -51,7 +52,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     {
         if(this.state.status!=null)
         {
-            if(this.state.status=='load')
+            if(this.state.status==='load')
             {
                 return (this.Loading());
             }
