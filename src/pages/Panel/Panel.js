@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './Panel.css';
-import library from "../../lib/ApiRequest";
+import library from "../../lib/Api";
 import Cookies from 'js-cookie';
 import Loading from '../../components/Loading/Loading';
 

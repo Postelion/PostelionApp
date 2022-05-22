@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 
 export default
 {
+  ApiRequest:{
     GetProjects(callback)
     {
         var options = config.projects.connection_option;
@@ -93,7 +94,36 @@ export default
     GetAdminSecurity(password,callback)
     {
       axios.get(config.ConfigApi+'user/admin',{ params:{token:Cookies.get('token'),password:password}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    CheckToken()
+    {
+      return Cookies.get('token').length >0;
+    }
+  },
+  ApiResponse:
+  {
+    GetResponse(data,success,loading,noAuth,error)
+    {
+      if(data!=null)
+      {
+        if(data.status==200)
+        {
+          success();
+        }
+        else if (data.status==403)
+        {
+          noAuth();
+        }
+        else {
+          error();
+        }
+      }
+      else 
+      {
+        loading();
+      }
     }
 
+  }
 
 }

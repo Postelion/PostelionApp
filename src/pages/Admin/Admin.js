@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react';
 import config from "../../config/config";
-import library from '../../lib/ApiRequest';
+import library from '../../lib/Api';
 import anime from 'animejs';
 import md5 from 'md5';
 import './Admin.css';

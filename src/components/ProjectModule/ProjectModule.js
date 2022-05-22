@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProjectModule.css"
 import anime from 'animejs';
-import ApiRequest from "../../lib/ApiRequest";
+import ApiRequest from "../../lib/Api";
 import { useNavigate } from "react-router-dom";     
 
 class ProjectModule extends React.Component{

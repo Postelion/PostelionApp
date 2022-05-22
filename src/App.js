@@ -12,6 +12,7 @@ import CV from './pages/CV/CV';
 import Login from './pages/Login/Login';
 import Admin from './pages/Admin/Admin';
 import config from "./config/config";
+import Test from './pages/test';
 
 function App() {
   document.documentElement.style.setProperty('--background',config.GetTheme().Background);
@@ -26,6 +27,7 @@ return (
         <Route path="/panel" element={ <Panel/> }/>
         <Route path="/login/:token" element={ <Login/> }/>
         <Route path="/admin" element={ <Admin/> }/>
+        <Route path="/test" element={ <Test/> }/>
         <Route path='*' element={ <Error/> } />
       </Routes>
       <NavigationBar/>

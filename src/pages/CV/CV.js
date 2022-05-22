@@ -4,7 +4,7 @@ import Loading from '../../components/Loading/Loading';
 import pdf from '../../components/PDFCreator/PDFCreator';
 import MaterialIcon from 'material-icons-react';
 import avatar from './avatar.jpg';
-import library from '../../lib/ApiRequest';
+import library from '../../lib/Api';
 import CircularProgress from '@mui/material/CircularProgress';
 import { createTheme } from '@mui/material/styles';
 import NoAuth from '../../components/NoAuth/NoAuth';

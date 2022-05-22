@@ -1,12 +1,11 @@
 import React,{useEffect, useRef,useState} from "react"
 import { useNavigate } from "react-router-dom";
 import config from "../../config/config";
-import library from '../../lib/ApiRequest';
+import libraryApi from '../../lib/Api';
 import anime from 'animejs';
 import './NavigationBar.css';
 import * as Iconsai  from "react-icons/ai";
 import * as Iconsbs  from "react-icons/bs";
-
 
 function NavigationBar (){     
 
@@ -14,31 +13,29 @@ function NavigationBar (){
     
         useEffect(()=>{
             
-                library.GetModules((data)=>{
-                    setModules(data.data);
+                libraryApi.ApiRequest.GetModules((data)=>{
+                    setModules(data);
                 });
                
         },[]);
 
-    
     const navigate = useNavigate();
-   
         return(
-            modules!=null?(
+            modules?(modules.status=200?(
                 <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}>
                     <div>
                         <Logo value="/"/>
                     </div>
                     <div style={{display:'flex',flexDirection:'column',gap:'25px'}}>
                     {
-                       modules.map((data,index)=><Option key={index} index={index} icon={data.icon}/>)
+                       modules.data.map((data,index)=><Option key={index} index={index} icon={data.icon}/>)
                     }
                     </div>
                     <div>
                         <ThemeSwitch/>
                     </div>
                 </div>)
-            :(<div></div>))
+            :(<div></div>)):(<div></div>))
     
 }
 

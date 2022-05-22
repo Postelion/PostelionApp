@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import "./ProjectView.css";
 import { useParams } from 'react-router';
-import ApiRequest from '../../lib/ApiRequest';
+import ApiRequest from '../../lib/Api';
 import ProjectReleaseView from '../../components/ProjectReleaseView/ProjectReleaseView';
 import Loading from '../../components/Loading/Loading';
 
