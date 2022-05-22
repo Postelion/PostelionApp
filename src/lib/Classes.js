@@ -4,24 +4,43 @@ export const ApiComponent = class ApiComponentClass extends React.Component
 {
     requests = [];
 
+    constructor(props)
+    {
+        super(props);
+        this.state = {status:'load'};
+        this.Constr(props);
+    }
+
     componentDidMount()
     {
-        this.state = {status:'load'};
         this.Start();
     }
 
     AddRequest(request,...args){
-        this.requests.push({req:request,args:args});
+         return (this.requests.push({req:request,args:args,response:null,status:null}))-1;
     }
     StartRequest()
     {
+        const status = 'Success';
         for (let index = 0; index < this.requests.length; index++) {
-            this.requests[index].req((data)=>{
+            try{
+                this.requests[index].req((data)=>{
+                
+                    this.requests[index].status = data.status;
+                    this.requests[index].response = data.data;
+                    data.status==403?status='NoAuth':(data.status!=200?status='Error':null);
 
-                console.log(data);
-            },this.requests[index].args);
+                },this.requests[index].args);
+            }
+            catch
+            {
+                this.requests[index].status = 500;
+            }
         }
+  
+        console.log(status);
     }
+    Constr(props){};
     Start(){}
     Success(data){}
     Error(){}
@@ -38,7 +57,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
             }
             else
             {
-                return (this.Success()) 
+                return (this.Success(this.returns)) 
             }
         }
     }

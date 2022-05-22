@@ -30,7 +30,7 @@ return (
         <Route path="/test" element={ <Test/> }/>
         <Route path='*' element={ <Error/> } />
       </Routes>
-      <NavigationBar/>
+      {/* <NavigationBar/> */}
     </div>
 
     );

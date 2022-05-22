@@ -6,7 +6,7 @@ class Test extends ApiComponent
 
     Start()
     {
-        this.AddRequest(LibraryApi.ApiRequest.GetServices,'asd','qwe');
+        this.AddRequest(LibraryApi.ApiRequest.GetServices,'asd',1);
         this.StartRequest();
     }
 
