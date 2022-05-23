@@ -6,36 +6,60 @@ import anime from 'animejs';
 import './NavigationBar.css';
 import * as Iconsai  from "react-icons/ai";
 import * as Iconsbs  from "react-icons/bs";
+import {ApiComponent} from '../../lib/Classes';
 
-function NavigationBar (){     
+class NavigationBar extends ApiComponent{     
 
-    const [modules,setModules] =useState(null);
+    // const [modules,setModules] =useState(null);
     
-        useEffect(()=>{
+    //     useEffect(()=>{
             
-                libraryApi.ApiRequest.GetModules((data)=>{
-                    setModules(data);
-                });
+    //             libraryApi.ApiRequest.GetModules((data)=>{
+    //                 setModules(data);
+    //             });
                
-        },[]);
+    //     },[]);
 
-    const navigate = useNavigate();
+    Start()
+    {
+        this.AddRequest(libraryApi.ApiRequest.GetModules);
+        this.StartRequest();
+    }
+
+    Loading()
+    {
         return(
-            modules?(modules.status=200?(
-                <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}>
-                    <div>
-                        <Logo value="/"/>
-                    </div>
-                    <div style={{display:'flex',flexDirection:'column',gap:'25px'}}>
-                    {
-                       modules.data.map((data,index)=><Option key={index} index={index} icon={data.icon}/>)
-                    }
-                    </div>
-                    <div>
-                        <ThemeSwitch/>
-                    </div>
-                </div>)
-            :(<div></div>)):(<div></div>))
+            <div>
+               <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}></div> 
+            </div>
+        )
+    }
+
+    Success()
+    {
+        return(
+            <div>
+               <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}></div> 
+            </div>
+        )
+    }
+    // const navigate = useNavigate();
+    //     return(
+    //         modules?(modules.status=200?(
+    //             <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}>
+    //                 <div>
+    //                     <Logo value="/"/>
+    //                 </div>
+    //                 <div style={{display:'flex',flexDirection:'column',gap:'25px'}}>
+    //                 {
+    //                    modules.data.map((data,index)=><Option key={index} index={index} icon={data.icon}/>)
+    //                 }
+    //                 </div>
+    //                 <div>
+    //                     <ThemeSwitch/>
+    //                 </div>
+    //             </div>)
+    //         :(<div></div>)):(<div></div>))
     
 }
 

@@ -10,10 +10,26 @@ class Test extends ApiComponent
         this.StartRequest();
     }
 
+    Loading()
+    {
+        return(
+            <div>Loading</div>
+        )
+    }
+    Error()
+    {
+        return(
+            <div>Error</div>
+        )
+    }
+    NoAuth()
+    {
+        return(<div>NoAuth</div>)
+    }
     Success(data)
     {
         return (
-            <div></div>
+            <div>SUKCES</div>
         )
     }
 }

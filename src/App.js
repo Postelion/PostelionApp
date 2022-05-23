@@ -32,7 +32,7 @@ return (
         <Route path='/kalkulator' element={<Kalkulator/>}/>
         <Route path='*' element={ <Error/> } />
       </Routes>
-      {/* <NavigationBar/> */}
+      <NavigationBar/>
     </div>
 
     );
