@@ -6,9 +6,10 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     constructor(props)
     {
         super(props);
-        this.state = {status:'load'};
+        this.state = {status:'loading'};
         this.Constr(props);
     }
+
 
     componentDidMount()
     {
@@ -19,6 +20,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     }
     StartRequest()
     {
+    
         for (let index = 0; index < this.requests.length; index++) {
             try{
                 this.requests[index].req((data)=>{
@@ -38,6 +40,15 @@ export const ApiComponent = class ApiComponentClass extends React.Component
             }
         }
     }
+    ResetRequest()
+    {
+        this.requests = [];
+    }
+    WaitForRequest()
+    {
+        this.setState({status:'waiting'});
+    }
+    Waiting(){};
     Constr(props){};
     Start(){}
     Success(data){}
@@ -46,9 +57,13 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     Loading(){}
     render()
     {
-       if(this.state==='load')
+       if(this.state.status==='loading')
        {
            return (this.Loading());
+       }
+       else if (this.state.status==='waiting')
+       {
+           return(this.Waiting());
        }
        else
        {
@@ -63,7 +78,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
                     return (this.Error());
                 }
                 else {
-                    return (this.Success());
+                    return (this.Success(this.requests));
                 }
             }
         }

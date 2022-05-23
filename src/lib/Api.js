@@ -91,7 +91,7 @@ export default
     {
       axios.get(config.ConfigApi+'modules/get',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
-    GetAdminSecurity(password,callback)
+    GetAdminSecurity(callback,password)
     {
       axios.get(config.ConfigApi+'user/admin',{ params:{token:Cookies.get('token'),password:password}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },

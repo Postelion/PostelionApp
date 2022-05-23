@@ -9,7 +9,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: var(--FontColor);
 }
+#Admin .code::placeholder
+{
+    color:var(--Background);
+}
+
 #Admin .code
 {
     outline: none;
@@ -20,6 +26,8 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 15, 0.2);
     border-radius: 25px;
     padding: 10px;
+    background-color: var(--FontColor);
+    color:var(--Background);
     font-size: 25px;
 } 
 
@@ -33,6 +41,8 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 15, 0.2);
     border: none;
     outline: none;
+    background-color: var(--FontColor);
+    color:var(--Background);
     width: 200px;
     height: 40px;
     font-family: Montserrat-ExtraBold;

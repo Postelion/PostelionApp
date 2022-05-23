@@ -11,12 +11,10 @@
   src: url(font/Montserrat-Medium.ttf);
 }
 
-:root {
-  --background: #4d4d4d;
-}
+
 html{margin:0px}
 body {
- background-color: var(--background);
+ background-color: var(--Background);
   margin: 0px;
   color:white;
   font-family: Montserrat;

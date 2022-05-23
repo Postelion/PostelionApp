@@ -1,7 +1,8 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
 import NavigationBar from './components/NavigationBar/NavigationBar'
-import React,{useState} from 'react';
+import React from 'react';
+import libraryTheme from './lib/Theme';
 
 import Error from './pages/Error/Error';
 import Home from './pages/Home/Home'
@@ -11,14 +12,12 @@ import Panel from './pages/Panel/Panel';
 import CV from './pages/CV/CV';
 import Login from './pages/Login/Login';
 import Admin from './pages/Admin/Admin';
-import config from "./config/config";
 import Test from './pages/test';
 import Kalkulator from './pages/Mini kalkulator/kalkulator';
 
 function App() {
-  document.documentElement.style.setProperty('--background',config.GetTheme().Background);
+  libraryTheme.ThemeInit();
 return (
-  
   <div className="App">
       <Routes>
         <Route path="/" element={ <Home/> } />
@@ -33,9 +32,7 @@ return (
         <Route path='*' element={ <Error/> } />
       </Routes>
       <NavigationBar/>
-    </div>
-
-    );
+    </div>);
 
   }
 

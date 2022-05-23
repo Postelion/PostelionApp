@@ -1,24 +1,12 @@
-import React,{useEffect, useRef,useState} from "react"
+import {useEffect, useRef, useState} from "react"
 import { useNavigate } from "react-router-dom";
-import config from "../../config/config";
 import libraryApi from '../../lib/Api';
 import anime from 'animejs';
 import './NavigationBar.css';
-import * as Iconsai  from "react-icons/ai";
-import * as Iconsbs  from "react-icons/bs";
 import {ApiComponent} from '../../lib/Classes';
+import libraryTheme from '../../lib/Theme';
 
 class NavigationBar extends ApiComponent{     
-
-    // const [modules,setModules] =useState(null);
-    
-    //     useEffect(()=>{
-            
-    //             libraryApi.ApiRequest.GetModules((data)=>{
-    //                 setModules(data);
-    //             });
-               
-    //     },[]);
 
     Start()
     {
@@ -29,56 +17,76 @@ class NavigationBar extends ApiComponent{
     Loading()
     {
         return(
-            <div>
-               <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}></div> 
-            </div>
+            <div id="Navigation_bar">
+                <div>
+                    <Logo/>
+                </div>
+                <div></div>
+                <ThemeSwitch/>
+            </div> 
         )
     }
-
-    Success()
+    Success(data)
     {
         return(
-            <div>
-               <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}></div> 
-            </div>
+            
+            <div id="Navigation_bar">
+                <div>
+                    <Logo/>
+                </div>
+                <div className="options">
+                    {
+                        data[0].response.map((element,key)=>
+                            <Option key={key} index={key} icon={element.icon} value={element.value} title={element.name}/>
+                        )
+                    }
+                </div>
+                <ThemeSwitch/>
+            </div> 
         )
     }
-    // const navigate = useNavigate();
-    //     return(
-    //         modules?(modules.status=200?(
-    //             <div id="Navigation_bar" style={{backgroundColor:config.GetTheme().NavBarColor}}>
-    //                 <div>
-    //                     <Logo value="/"/>
-    //                 </div>
-    //                 <div style={{display:'flex',flexDirection:'column',gap:'25px'}}>
-    //                 {
-    //                    modules.data.map((data,index)=><Option key={index} index={index} icon={data.icon}/>)
-    //                 }
-    //                 </div>
-    //                 <div>
-    //                     <ThemeSwitch/>
-    //                 </div>
-    //             </div>)
-    //         :(<div></div>)):(<div></div>))
-    
+    Error()
+    {
+        return(
+            <div id="Navigation_bar">
+                <div>
+                    <Logo/>
+                </div>
+                <div></div>
+                <ThemeSwitch/>
+            </div> 
+        )
+    }
+    NoAuth()
+    {
+        return(
+            <div id="Navigation_bar">
+                <div>
+                    <Logo/>
+                </div>
+                <div></div>
+                <ThemeSwitch/>
+            </div> 
+        )
+    }
 }
 
 function Logo(props)
 {
     const navigate = useNavigate();
-    const onClickHandler = () => navigate(props.value);
-    const style= {width:'50px',marginTop:'25px'}
+    const onClickHandler = () => navigate('/');
     return(
-        <div style={style} onClick={onClickHandler}><img alt="logo" src="/static/logo.svg"/></div>
+        <div className="logo" onClick={onClickHandler}><img alt="logo"/></div>
     )
 }
 
 function Option(props)
 {
+    const active= window.location.pathname===props.value;
     const navigate = useNavigate();
     const main =useRef();
-    let Icons = (Iconsai[props.icon]);
-    if(Icons==null) Icons = (Iconsbs[props.icon])
+
+    const Icon = libraryTheme.GetIcon(props.icon);
     useEffect(()=>{
         anime({
             targets: main.current,
@@ -88,11 +96,15 @@ function Option(props)
     
         });
     });
+    const click = ()=>{
+        navigate(props.value);
+    }
     const hover = ()=>{
         anime({
             targets: main.current,
             'box-shadow': '0px 0px 15px rgba(0, 0, 0, 0.2)',
-            'scale':'1.05'
+            'scale':'1.05',
+            'background-color':'red'
 
         });
     }
@@ -104,12 +116,11 @@ function Option(props)
 
         });
     }
-    if(Icons!=null)
+    if(Icon!=null)
     {
-        
             return(
-                    <div ref={main} className="option" onMouseEnter={()=>{hover()}} onMouseLeave={()=>{unhover()}} >
-                        <Icons color={props.active==true?config.GetTheme().NavBarColorIconActive:config.GetTheme().NavBarColorIconDisable}/>
+                    <div title={props.title} ref={main} onClick={()=>{click();}} className={active?'optionactive':'option'} onMouseEnter={()=>{hover()}} onMouseLeave={()=>{unhover()}} >
+                        <Icon/>
                     </div>
             )  
     }
@@ -118,21 +129,57 @@ function Option(props)
 
 function ThemeSwitch(props)
 {
+    const [theme,setTheme] = useState(libraryTheme.GetTheme(true));
     const ToogleTheme= ()=>{
-        config.ToogleTheme();
+        libraryTheme.ChangeTheme();
+        setTheme(libraryTheme.GetTheme(true));
     }
-    if(config.GetThemeName()=='light'){
-        return(<div onClick={()=>{ToogleTheme()}} style={{backgroundColor:config.GetTheme().NavBarSecondColor}} className="Theme_switch">
-            <Iconsbs.BsSunFill size={25} color={config.GetTheme().NavBarColorIconActive} />
-            <Iconsbs.BsFillMoonFill size={25} color={config.GetTheme().NavBarColorIconDisable}/>
-        </div>)
+    if(libraryTheme.GetTheme(true)==='light')
+    {
+        anime(
+            {
+                targets: '#Navigation_bar .theme_switch_switcher > div',
+                'margin-top':'8px',
+                easing: 'easeOutExpo',
+                duration:500
+            }
+        )
     }
-    else {
-        return(<div onClick={()=>{ToogleTheme()}} style={{backgroundColor:config.GetTheme().NavBarSecondColor}} className="Theme_switch">
-            <Iconsbs.BsSunFill size={25} color={config.GetTheme().NavBarColorIconDisable} />
-            <Iconsbs.BsFillMoonFill size={25} color={config.GetTheme().NavBarColorIconActive}/>
-        </div>)
+    else 
+    {
+        anime(
+            {
+                targets: '#Navigation_bar .theme_switch_switcher > div',
+                'margin-top':'62px',
+                easing: 'easeOutExpo',
+                duration:500
+            }
+        )
     }
+    const Light = libraryTheme.GetIcon('BsSunFill');
+    const Dark = libraryTheme.GetIcon('BsFillMoonFill');
+
+    return(
+        <div onClick={()=>{ToogleTheme()}} >
+            {
+                    theme==='light'?
+                    <div className="Theme_switch">
+                        <Light size={24} color="var(--FontColor)"/>
+                        <Dark size={24} color="var(--NavBarColor)"/>
+                    </div>:
+                    <div className="Theme_switch">
+                        <Light size={24} color="var(--NavBarColor)"/>
+                        <Dark size={24} color="var(--FontColor)"/>
+                    </div>
+
+            }
+            <div className="theme_switch_switcher">
+                <div></div>
+            </div>
+        </div>
+    )
+
+    
 }
 
 
