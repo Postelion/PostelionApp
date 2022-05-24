@@ -20,7 +20,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     }
     StartRequest()
     {
-    
+        this.setState({status:'loading'});
         for (let index = 0; index < this.requests.length; index++) {
             try{
                 this.requests[index].req((data)=>{

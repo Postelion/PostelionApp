@@ -1,6 +1,7 @@
 import axios from 'axios';
 import config from '../config/config';
 import Cookies from 'js-cookie';
+import qs from 'qs';
 
 export default
 {
@@ -93,7 +94,16 @@ export default
     },
     GetAdminSecurity(callback,password)
     {
-      axios.get(config.ConfigApi+'user/admin',{ params:{token:Cookies.get('token'),password:password}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios({
+        method: 'post',
+        url: config.ConfigApi+'user/admin',
+        data: qs.stringify({
+          token: Cookies.get('token'),
+          password: password[0]
+        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      }).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});;
+      // axios.post(config.ConfigApi+'user/admin',{token:Cookies.get('token'),password:password}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
     CheckToken()
     {

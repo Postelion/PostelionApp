@@ -6,17 +6,18 @@ function Loading(props)
 {
     useEffect(() => {
         anime({
-            targets: ".NoAuth",
+            targets: ".loading",
             opacity: [0,1],
             duration:500,
             delay:250
         });
+
       });
 
  return(
-     <div className="NoAuth">
-         <img src="/static/logo2.svg"/>
-         <div className='loader'></div>
+     <div className="loading">
+         <img/>
+         <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
      </div>
  )
 }

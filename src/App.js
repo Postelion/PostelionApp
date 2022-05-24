@@ -14,6 +14,7 @@ import Login from './pages/Login/Login';
 import Admin from './pages/Admin/Admin';
 import Test from './pages/test';
 import Kalkulator from './pages/Mini kalkulator/kalkulator';
+import AdminPanel from './pages/Admin/AdminPanel/AdminPanel';
 
 function App() {
   libraryTheme.ThemeInit();
@@ -27,6 +28,7 @@ return (
         <Route path="/panel" element={ <Panel/> }/>
         <Route path="/login/:token" element={ <Login/> }/>
         <Route path="/admin" element={ <Admin/> }/>
+        <Route path="/admin/panel" element={ <AdminPanel/> }/>
         <Route path="/test" element={ <Test/> }/>
         <Route path='/kalkulator' element={<Kalkulator/>}/>
         <Route path='*' element={ <Error/> } />

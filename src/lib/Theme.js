@@ -30,6 +30,10 @@ const LightTheme = [
     {
         name:'logo',
         value:'url("/static/logo.svg")'
+    },
+    {
+        name:'LoadingColor',
+        value:'#242424' 
     }
 ]
 
@@ -61,6 +65,10 @@ const DarkTheme = [
     {
         name:'logo',
         value:'url("/static/logo2.svg")'
+    },
+    {
+        name:'LoadingColor',
+        value:'white' 
     }
 ]
 

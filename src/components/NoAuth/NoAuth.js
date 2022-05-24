@@ -6,7 +6,7 @@ function NoAuth(props)
 {
     useEffect(() => {
         anime({
-            targets: ".loading",
+            targets: ".NoAuth",
             opacity: [0,1],
             duration:500,
             delay:250
@@ -14,9 +14,9 @@ function NoAuth(props)
       });
 
  return(
-     <div className="loading">
-         <img src="/static/logo2.svg"/>
-         <div style={{fontSize:'25px'}}>Nie masz uprawnień do przeglądania tej treści</div>
+     <div className="NoAuth">
+         <img/>
+         <div >Nie masz uprawnień do przeglądania tej treści</div>
      </div>
  )
 }

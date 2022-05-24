@@ -134,28 +134,30 @@ function ThemeSwitch(props)
         libraryTheme.ChangeTheme();
         setTheme(libraryTheme.GetTheme(true));
     }
-    if(libraryTheme.GetTheme(true)==='light')
-    {
-        anime(
-            {
-                targets: '#Navigation_bar .theme_switch_switcher > div',
-                'margin-top':'8px',
-                easing: 'easeOutExpo',
-                duration:500
-            }
-        )
-    }
-    else 
-    {
-        anime(
-            {
-                targets: '#Navigation_bar .theme_switch_switcher > div',
-                'margin-top':'62px',
-                easing: 'easeOutExpo',
-                duration:500
-            }
-        )
-    }
+    useEffect(()=>{
+        if(libraryTheme.GetTheme(true)==='light')
+        {
+            anime(
+                {
+                    targets: '#Navigation_bar .theme_switch_switcher > div',
+                    'margin-top':'8px',
+                    easing: 'easeOutExpo',
+                    duration:500
+                }
+            )
+        }
+        else 
+        {
+            anime(
+                {
+                    targets: '#Navigation_bar .theme_switch_switcher > div',
+                    'margin-top':'62px',
+                    easing: 'easeOutExpo',
+                    duration:500
+                }
+            )
+        }
+    })
     const Light = libraryTheme.GetIcon('BsSunFill');
     const Dark = libraryTheme.GetIcon('BsFillMoonFill');
 

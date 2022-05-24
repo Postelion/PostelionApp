@@ -1,10 +1,11 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import LibraryApi from '../../lib/Api';
 import anime from 'animejs';
 import md5 from 'md5';
 import './Admin.css';
 import {ApiComponent} from '../../lib/Classes';
-import { waitFor } from '@testing-library/react';
+import { useNavigate } from "react-router-dom";
+import Loading from '../../components/Loading/Loading';
 
 
 class Admin extends ApiComponent
@@ -31,11 +32,26 @@ class Admin extends ApiComponent
 
     Success(data)
     {
-        console.log(data);
-        return (<div></div>)
+        return(
+            <div id='Admin'>
+                 <Navigator/>
+            </div>
+            
+        )
     }
 
-    Waiting()
+    NoAuth()
+    {
+        return(
+            <div id='Admin'>
+                <span >WPISZ KOD</span>
+                <PasswordInput pass={this.pass}/>
+                <AcceptButton confirm={()=>{this.confirm()}}/>
+                NIEPOPRAWNY KOD
+            </div>
+        ) 
+    }
+    Error()
     {
         return(
             <div id='Admin'>
@@ -43,11 +59,35 @@ class Admin extends ApiComponent
                 <PasswordInput pass={this.pass}/>
                 <AcceptButton confirm={()=>{this.confirm()}}/>
             </div>
+        ) 
+    }
+    Waiting()
+    {
+        return(
+            <div id='Admin'>
+                 <span >WPISZ KOD</span>
+                 <PasswordInput pass={this.pass}/>
+                 <AcceptButton confirm={()=>{this.confirm()}}/>
+            </div>
+            
         )
+    }
+    Loading()
+    {
+        return(<div id='Admin'><Loading/></div>)
     }
     
 }
+function Navigator(props)
+{
+    const navigate = useNavigate();
+    useEffect(()=>{
+        navigate('/admin/panel');    
+    })
+    return(<div>
 
+    </div>)
+}
 
 function PasswordInput(props)
 {
