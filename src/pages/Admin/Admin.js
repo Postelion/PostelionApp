@@ -6,6 +6,7 @@ import './Admin.css';
 import {ApiComponent} from '../../lib/Classes';
 import { useNavigate } from "react-router-dom";
 import Loading from '../../components/Loading/Loading';
+import NoAuth from '../../components/NoAuth/NoAuth';
 
 
 class Admin extends ApiComponent
@@ -19,22 +20,22 @@ class Admin extends ApiComponent
     }
     Start()
     {
-        this.WaitForRequest();
-    }
-    
-    confirm()
-    {
-        this.ResetRequest();
-        md5(this.pass.current.value);
-        this.AddRequest(LibraryApi.ApiRequest.GetAdminSecurity,md5(this.pass.current.value))
+        this.AddRequest(LibraryApi.ApiRequest.GetSpecificModules,'admin');
+        this.AddRequest(LibraryApi.ApiRequest.GetModules);
+        this.AddRequest(LibraryApi.ApiRequest.GetAdminAlreadyLogged);
+
+
         this.StartRequest();
     }
-
+    
     Success(data)
     {
+        console.log(data);
         return(
             <div id='Admin'>
-                 <Navigator/>
+                <span >WPISZ KOD</span>
+                <PasswordInput pass={this.pass}/>
+                <AcceptButton />
             </div>
             
         )
@@ -44,10 +45,7 @@ class Admin extends ApiComponent
     {
         return(
             <div id='Admin'>
-                <span >WPISZ KOD</span>
-                <PasswordInput pass={this.pass}/>
-                <AcceptButton confirm={()=>{this.confirm()}}/>
-                NIEPOPRAWNY KOD
+                <NoAuth/>
             </div>
         ) 
     }
@@ -60,17 +58,6 @@ class Admin extends ApiComponent
                 <AcceptButton confirm={()=>{this.confirm()}}/>
             </div>
         ) 
-    }
-    Waiting()
-    {
-        return(
-            <div id='Admin'>
-                 <span >WPISZ KOD</span>
-                 <PasswordInput pass={this.pass}/>
-                 <AcceptButton confirm={()=>{this.confirm()}}/>
-            </div>
-            
-        )
     }
     Loading()
     {

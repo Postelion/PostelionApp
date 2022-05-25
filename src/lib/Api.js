@@ -105,6 +105,15 @@ export default
       }).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});;
       // axios.post(config.ConfigApi+'user/admin',{token:Cookies.get('token'),password:password}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
+    GetSpecificModules(callback,modules)
+    {
+      axios.get(config.ConfigApi+'modules/'+modules,{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    GetAdminAlreadyLogged(callback)
+    {
+      axios.get(config.ConfigApi+'user/get/admin/access',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+
     CheckToken()
     {
       return Cookies.get('token').length >0;

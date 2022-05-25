@@ -18,7 +18,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     AddRequest(request,...args){
          return (this.requests.push({req:request,args:args,response:null,status:null}))-1;
     }
-    StartRequest()
+    async StartRequest()
     {
         this.setState({status:'loading'});
         for (let index = 0; index < this.requests.length; index++) {
@@ -44,11 +44,6 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     {
         this.requests = [];
     }
-    WaitForRequest()
-    {
-        this.setState({status:'waiting'});
-    }
-    Waiting(){};
     Constr(props){};
     Start(){}
     Success(data){}
@@ -60,10 +55,6 @@ export const ApiComponent = class ApiComponentClass extends React.Component
        if(this.state.status==='loading')
        {
            return (this.Loading());
-       }
-       else if (this.state.status==='waiting')
-       {
-           return(this.Waiting());
        }
        else
        {

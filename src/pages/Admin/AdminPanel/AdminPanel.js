@@ -4,7 +4,7 @@ class AdminPanel extends  ApiComponent
 {
     Start()
     {
-        this.WaitForRequest();
+        
     }
 
 }
