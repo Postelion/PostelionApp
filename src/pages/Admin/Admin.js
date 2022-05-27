@@ -21,24 +21,26 @@ class Admin extends ApiComponent
     Start()
     {
         this.AddRequest(LibraryApi.ApiRequest.GetSpecificModules,'admin');
-        this.AddRequest(LibraryApi.ApiRequest.GetModules);
         this.AddRequest(LibraryApi.ApiRequest.GetAdminAlreadyLogged);
-
-
         this.StartRequest();
     }
     
     Success(data)
     {
-        console.log(data);
-        return(
-            <div id='Admin'>
-                <span >WPISZ KOD</span>
-                <PasswordInput pass={this.pass}/>
-                <AcceptButton />
-            </div>
-            
-        )
+        if(data[1].response.result=="Access")
+        {
+            return(<Navigator/>)
+        }
+        else
+        {
+            return(
+                <div id='Admin'>
+                    <span >WPISZ KOD</span>
+                    <PasswordInput pass={this.pass}/>
+                    <AcceptButton />
+                </div>   
+            )
+        }
     }
 
     NoAuth()
