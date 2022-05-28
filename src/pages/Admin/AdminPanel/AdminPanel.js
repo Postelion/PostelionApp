@@ -97,6 +97,11 @@ function GetSetting(props)
 }
 function ConfigGet(props)
 {
+    function addNewPosition()
+    {
+    
+    }
+
     console.log(props.data[0].response[0]);
     return (<div className='Config'>
         <span>Config</span>
@@ -120,8 +125,9 @@ function ConfigGet(props)
             )
                        
         }
-        <div>Dodaj Nową pozycje</div>
-        </div>
-    </div>)
+        <div className='addNewPosition' ><div onClick={()=>{addNewPosition()}}>Dodaj Nową pozycje</div></div>
+        
+    </div>
+</div>)
 }
 export default AdminPanel;

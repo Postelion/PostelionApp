@@ -42,6 +42,7 @@
 #AdminPanel .Content .Config
 {
     background-color: var(--NavBarColor);
+    color:var(--FontColor);
     border-radius: 15px;
     display: grid;
     grid-template-rows: 75px 1fr 75px;
@@ -80,4 +81,27 @@
     color:var(--FontColor);
     padding: 10px;
     font-size: 15px;
+}
+
+#AdminPanel .Content .Config .addNewPosition
+{
+    justify-content: center;
+    display: flex;
+}
+
+#AdminPanel .Content .Config .addNewPosition div
+{
+    margin-top: 25px;
+    border-radius: 10px;
+    background-color: var(--Background);
+    width: 250px;
+    padding: 10px;
+}
+#AdminPanel .Content .Config .addNewPosition div:hover
+{
+    cursor: pointer;
+}
+#AdminPanel .Content .Config .addPosition
+{
+    background-color: red;
 }
