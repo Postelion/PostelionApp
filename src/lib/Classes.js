@@ -47,7 +47,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     Constr(props){};
     Start(){}
     Success(data){}
-    Error(){}
+    Error(error){}
     NoAuth(){}
     Loading(){}
     render()
@@ -64,9 +64,9 @@ export const ApiComponent = class ApiComponentClass extends React.Component
             }
             else 
             {
-                if(this.requests.some(e => e.status!==200))
+                if(this.requests.some(e => e.status>300))
                 {
-                    return (this.Error());
+                    return (this.Error(this.requests));
                 }
                 else {
                     return (this.Success(this.requests));
