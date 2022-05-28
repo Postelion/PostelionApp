@@ -111,7 +111,11 @@ export default
     },
     GetAdminAlreadyLogged(callback)
     {
-      axios.get(config.ConfigApi+'user/get/admin/access',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios.get(config.ConfigApi+'user/admin/access',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    GetAdminConfig(callback)
+    {
+      axios.get(config.ConfigApi+'user/admin/config',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
     CheckToken()
     {

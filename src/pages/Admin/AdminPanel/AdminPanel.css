@@ -1,0 +1,13 @@
+#AdminPanel
+{
+    position: absolute;
+    right:25px;
+    bottom:25px;
+    top:25px;
+    left:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--FontColor);
+}

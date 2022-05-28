@@ -27,7 +27,8 @@ class Admin extends ApiComponent
     
     Success(data)
     {
-        if(data[1].response.result=="Access")
+        console.log(data);
+        if(data[1].response.result==true)
         {
             return(<Navigator/>)
         }
