@@ -22,7 +22,7 @@ return (
   <div className="App">
       <Routes>
         <Route path="/" element={ <Home/> } />
-        <Route path="/CV" element={ <CV/> } />
+        <Route path="/CV" element={ <CV customState="{CompanyName:''}"/> } />
         <Route path="/project" element={ <Project/> } />
         <Route path="/project/:id" element={ <ProjectView/> } />
         <Route path="/panel" element={ <Panel/> }/>

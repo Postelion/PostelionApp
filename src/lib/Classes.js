@@ -6,14 +6,22 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     constructor(props)
     {
         super(props);
-        this.state = {status:'loading'};
+        this.SetStateInit(props.customState);
         this.Constr(props);
     }
-
+    SetStateInit(json)
+    {
+        this.state = {status:'loading',data:json};
+    }
+    setStateCustom(json)
+    {
+        this.setState({data:json});
+    }
 
     componentDidMount()
     {
         this.Start();
+        this.DidMount();
     }
     AddRequest(request,...args){
          return (this.requests.push({req:request,args:args,response:null,status:null}))-1;
@@ -44,6 +52,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
     {
         this.requests = [];
     }
+    DidMount(){};
     Constr(props){};
     Start(){}
     Success(data){}

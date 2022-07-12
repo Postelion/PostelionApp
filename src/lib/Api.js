@@ -74,11 +74,12 @@ export default
     },
     GetDefaultCV(callback)
     {
-      axios.get(config.ConfigApi+"cv/default",{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+
+      axios.post(config.ConfigApi+"cv.php?action=get_default",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
     GetUserGet(callback)
     {
-      axios.get(config.ConfigApi+"user/get",{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios.post(config.ConfigApi+"user.php?action=get_specific",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
     GetServices(callback)
     {
@@ -90,7 +91,7 @@ export default
     },
     GetModules(callback)
     {
-      axios.get(config.ConfigApi+'modules/get',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      axios.post(config.ConfigApi+'modules.php?action=get',{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
     },
     GetAdminSecurity(callback,password)
     {
