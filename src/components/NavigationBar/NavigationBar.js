@@ -28,6 +28,7 @@ class NavigationBar extends ApiComponent{
     }
     Success(data)
     {
+        console.log(data);
         return(
             
             <div id="Navigation_bar">

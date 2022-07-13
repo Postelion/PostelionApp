@@ -4,6 +4,6 @@ export default {
 
 
     //ConfigApi
-    ConfigApi:'http://api.postelion.pl/',
+    ConfigApi:'https://postelion.pl/api/',
 
 }
