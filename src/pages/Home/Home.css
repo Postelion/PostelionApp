@@ -1,8 +1,35 @@
 #Home
 {
     position: absolute;
-    top:100px;
-    left:20px;
+    bottom: 20px;
+    top:20px;
+    left:100px;
     right: 20px;
+}
+#Home .NameCompany
+{
+    font-size: 35px;
+    font-family: Montserrat-ExtraBold;
+    cursor: pointer;
     display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#Home .NameCompany .IconEdit
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#Home .NameCompany input
+{
+    text-align: center;
+    font-size: 35px;
+    color:var(--FontColor);
+    font-family: Montserrat-ExtraBold;
+    background-color: transparent;
+    min-width: 50px;
+    max-width: 400px;
+    outline: none;
+    border: none;
 }
