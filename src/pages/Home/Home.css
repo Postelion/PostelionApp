@@ -13,8 +13,14 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+    color: var(--FontColor);
     align-items: center;
 
+}
+#Home .NameCompany .valueName
+{
+    max-width: 500px;
+    overflow-wrap: break-word;
 }
 #Home .NameCompany .IconEdit
 {
@@ -29,7 +35,7 @@
     font-family: Montserrat-ExtraBold;
     background-color: transparent;
     min-width: 50px;
-    max-width: 400px;
+    max-width: 500px;
     outline: none;
     border: none;
 }

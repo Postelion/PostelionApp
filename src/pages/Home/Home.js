@@ -1,15 +1,32 @@
 import React,{useState,useRef} from 'react'
 import './Home.css'
-import libraryTheme from '../../lib/Theme';
+import libraryApi from '../../lib/Api';
+import libraryTheme from '../../lib/Theme'
+import {ApiComponent} from '../../lib/Classes'
+import Loading from '../../components/Loading/Loading'
 
-class Home extends React.Component
+class Home extends ApiComponent
 {
+    Start()
+    {
+        this.AddRequest(libraryApi.ApiRequest.GetCompanyName);
+        this.StartRequest();
+    }
 
-    render()
+    Success(data)
+    {
+
+        return (
+            <div id="Home">
+               <ChangeName value={data[0].response[0].name}/>          
+            </div>
+        )
+    }
+    Loading()
     {
         return (
             <div id="Home">
-               <ChangeName value="asd"/>          
+               <Loading/>       
             </div>
         )
     }
@@ -17,31 +34,34 @@ class Home extends React.Component
 }
 function ChangeName(props)
 {
+    const [ValuesStat,SetValuesStat] = useState(props.value);
     const [Status,SetStatus] = useState('text');
     const Icon = libraryTheme.GetIcon("MdEdit");
     const InputRef = useRef();
 
     const save = () =>
     {
-
+        SetValuesStat(InputRef.current.value);
+        libraryApi.ApiRequest.SetCompanyName(null,InputRef.current.value);
     }
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             SetStatus('text');
+            save();
         }
     }
 
     if(Status=='input')
     {
         return(<div className='NameCompany'>
-            <input ref={InputRef} autoFocus defaultValue={props.value} onKeyDown={handleKeyPress} onBlur={()=>{SetStatus('text')}}/>
+            <input maxLength={50} ref={InputRef} autoFocus defaultValue={ValuesStat} onKeyDown={handleKeyPress} onBlur={()=>{SetStatus('text')}}/>
             
             </div>)
     }
     else 
     {
         return(<div className='NameCompany' onClick={()=>{SetStatus('input')}}>
-            <div>{props.value}</div>
+            <div className='valueName'>{ValuesStat}</div>
             <Icon className="IconEdit" size="20px"/>
             </div>)
     }

@@ -3,20 +3,20 @@ import './Project.css'; //CSS
 import ProjectModule from '../../components/ProjectModule/ProjectModule'; //Component
 import ApiRequest from '../../lib/Api';
 import Loading from '../../components/Loading/Loading';
+import {ApiComponent} from '../../lib/Classes';
 
-class Project extends React.Component
+class Project extends ApiComponent
 {
 
-    constructor(props)
+    Start()
     {
-        super(props);
-        this.state= {projects:null};
-        const main = this;
-        ApiRequest.GetProjects(function(data){main.setState({projects:data})});
+        this.AddRequest(ApiRequest.GetProjects);
+        this.StartRequest();
     }
 
-    render()
+    Success(data)
     {
+        console.log(data);
         if(this.state.projects)
         {
             return (
@@ -37,8 +37,8 @@ class Project extends React.Component
                 </div>
             ) 
         }
-    }
 
+    }
 }
 
 export default Project;

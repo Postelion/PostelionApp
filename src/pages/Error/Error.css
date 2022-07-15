@@ -7,8 +7,10 @@
     display: flex;
     flex-direction: column;
     gap:25px;
-    font-size:25px
+    font-size:25px;
+    color:var(--FontColor);
 }
+
 
 #Error img
 {
@@ -19,6 +21,7 @@
 
 #Error .code
 {
+    
     font-size: 150px;
     margin: 25px;
     font-weight: bold;

@@ -23,8 +23,8 @@ return (
       <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="/CV" element={ <CV customState="{CompanyName:''}"/> } />
-        <Route path="/project" element={ <Project/> } />
-        <Route path="/project/:id" element={ <ProjectView/> } />
+        <Route path="/projects" element={ <Project/> } />
+        <Route path="/projects/:id" element={ <ProjectView/> } />
         <Route path="/panel" element={ <Panel/> }/>
         <Route path="/login/:token" element={ <Login/> }/>
         <Route path="/admin" element={ <Admin/> }/>
