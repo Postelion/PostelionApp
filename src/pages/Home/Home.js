@@ -1,23 +1,13 @@
 import React,{useState,useRef} from 'react'
 import './Home.css'
-<<<<<<< HEAD
-import {ApiComponent} from '../../lib/Classes';
-import libraryApi from '../../lib/Api';
-=======
 import libraryApi from '../../lib/Api';
 import libraryTheme from '../../lib/Theme'
 import {ApiComponent} from '../../lib/Classes'
->>>>>>> 38fe030c9ff4dcb51d213768b908a46ab0fadf49
 import Loading from '../../components/Loading/Loading'
 
 class Home extends ApiComponent
 {
     Start()
-<<<<<<< HEAD
-    {
-        this.AddRequest(libraryApi.ApiRequest.GetUserGet);
-        this.StartRequest();
-=======
     {
         this.AddRequest(libraryApi.ApiRequest.GetCompanyName);
         this.StartRequest();
@@ -39,7 +29,6 @@ class Home extends ApiComponent
                <Loading/>       
             </div>
         )
->>>>>>> 38fe030c9ff4dcb51d213768b908a46ab0fadf49
     }
 
 
