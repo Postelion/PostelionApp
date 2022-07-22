@@ -1,10 +1,21 @@
 #Home
 {
     position: absolute;
+<<<<<<< HEAD
+=======
+    bottom: 20px;
+>>>>>>> 38fe030c9ff4dcb51d213768b908a46ab0fadf49
     top:20px;
     left:100px;
     right: 20px;
+}
+#Home .NameCompany
+{
+    font-size: 35px;
+    font-family: Montserrat-ExtraBold;
+    cursor: pointer;
     display: flex;
+<<<<<<< HEAD
     color: var(--FontColor);
     font-family: Montserrat-ExtraBold;
 
@@ -21,4 +32,32 @@
     margin-top: 20px;
     font-size: 35px; 
     display: block;
+=======
+    justify-content: center;
+    color: var(--FontColor);
+    align-items: center;
+
+}
+#Home .NameCompany .valueName
+{
+    max-width: 500px;
+    overflow-wrap: break-word;
+}
+#Home .NameCompany .IconEdit
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#Home .NameCompany input
+{
+    text-align: center;
+    font-size: 35px;
+    color:var(--FontColor);
+    font-family: Montserrat-ExtraBold;
+    background-color: transparent;
+    min-width: 50px;
+    max-width: 500px;
+    outline: none;
+    border: none;
+>>>>>>> 38fe030c9ff4dcb51d213768b908a46ab0fadf49
 }

@@ -6,6 +6,14 @@ import qs from 'qs';
 export default
 {
   ApiRequest:{
+    SetCompanyName(callback,value)
+    {
+      axios.post(config.ConfigApi+"user.php?action=set_name&value="+value,{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
+    GetCompanyName(callback)
+    {
+      axios.post(config.ConfigApi+"user.php?action=get_specific",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    },
     GetProjects(callback)
     {
         var options = config.projects.connection_option;
