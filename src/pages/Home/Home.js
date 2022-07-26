@@ -35,8 +35,8 @@ class Home extends ApiComponent
    Success(data)
    {
     return(<div id='Home'>
-        <span className='WelcomeText'>WITAJ
-            <span className='NextText'>Aktualnie przypisana nazwa firmy to: {data[0].response[0].name}</span>
+        <span className='WelcomeText'>WITAJ 
+            <span className='NextText'>{data[0].response[0].name}</span>
             <span className='NextText'></span>
         </span>
 
