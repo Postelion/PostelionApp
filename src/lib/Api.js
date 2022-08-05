@@ -1,135 +1,175 @@
 import axios from 'axios';
-import config from '../config/config';
-import Cookies from 'js-cookie';
+import configApi from '../config/config';
+import cookies from 'js-cookie';
 import qs from 'qs';
+
+const ApiIP = 'http://localhost:3001'
 
 export default
 {
   ApiRequest:{
-    SetCompanyName(callback,value)
+    getCurrentModules(callback)
     {
-      axios.post(config.ConfigApi+"user.php?action=set_name&value="+value,{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+      var config = {
+        method: 'get',
+        url: ApiIP+'/modules/current',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token')
+        }
+      };
+      
+      axios(config)
+      .then(function (response) {
+        callback(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      
     },
-    GetCompanyName(callback)
+    getCurrentUser(callback)
     {
-      axios.post(config.ConfigApi+"user.php?action=get_specific",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetProjects(callback)
-    {
-        var options = config.projects.connection_option;
-        options.url = config.projects.link_repos;
-        axios.request(options);
-        axios.request(options).then(function (response) {
-            callback(response.data);
-          }).catch(function (error) {
-            callback(error);
-          });
-    },
-    GetProjectDescription(full_name,callback)
-    {
-        var options= new Object();
-        options.url = 'https://raw.githubusercontent.com/'+full_name+'/main/description.md';
-        axios.request(options);
-        axios.request(options).then(function (response) {
-            callback(response.data);
-          }).catch(function (error) {
-            callback(error);
-          });
-    },
-    GetProjectVersion(full_name,callback)
-    {
-        var options = config.projects.connection_option;
-        options.url = 'https://api.github.com/repos/'+full_name+'/releases/latest';
-        axios.request(options);
-        axios.request(options).then(function (response) {
-            callback(response.data.name);
-          }).catch(function (error) {
-            callback(error);
-          });
-    },
-    GetProject(id,callback)
-    {
-        var options = config.projects.connection_option;
-        options.url = config.projects.link_repos;
-        axios.request(options);
-        axios.request(options).then(function (response) {
-            callback(response.data[id]);
-          }).catch(function (error) {
-            callback(error);
-          });
-    },
-    GetReleases(full_name,callback)
-    {
-        var options = config.projects.connection_option;
-        options.url = 'https://api.github.com/repos/'+full_name+'/releases';
-        axios.request(options);
-        axios.request(options).then(function (response) {
-            callback(response.data);
-          }).catch(function (error) {
-            callback(error);
-          });
-    },
-    GetCommits(full_name,callback)
-    {
-        var options = config.projects.connection_option;
-        options.url = 'https://api.github.com/repos/'+full_name+'/commits';
-        axios.request(options);
-        axios.request(options).then(function (response) {
-            callback(response.data);
-          }).catch(function (error) {
-            callback(error);
-          });
-    },
-    GetDefaultCV(callback)
-    {
-
-      axios.post(config.ConfigApi+"cv.php?action=get_default",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetUserGet(callback)
-    {
-      axios.post(config.ConfigApi+"user.php?action=get_specific",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetServices(callback)
-    {
-      axios.get(config.ConfigApi+"services/get",{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    CheckService(link,callback)
-    {
-      axios.get(config.ConfigApi+link,{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetModules(callback)
-    {
-      axios.post(config.ConfigApi+'modules.php?action=get',{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetAdminSecurity(callback,password)
-    {
-      axios({
-        method: 'post',
-        url: config.ConfigApi+'user/admin',
-        data: qs.stringify({
-          token: Cookies.get('token'),
-          password: password[0]
-        }),
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }
-      }).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});;
-      // axios.post(config.ConfigApi+'user/admin',{token:Cookies.get('token'),password:password}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetSpecificModules(callback,modules)
-    {
-      axios.get(config.ConfigApi+'modules/'+modules,{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetAdminAlreadyLogged(callback)
-    {
-      axios.get(config.ConfigApi+'user/admin/access',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    GetAdminConfig(callback)
-    {
-      axios.get(config.ConfigApi+'user/admin/config',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
-    },
-    CheckToken()
-    {
-      return Cookies.get('token').length >0;
+      var config = {
+        method: 'get',
+        url: ApiIP+'/user/current',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token')
+        }
+      };
+      
+      axios(config)
+      .then(function (response) {
+        callback(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
+
+    // SetCompanyName(callback,value)
+    // {
+    //   axios.post(config.ConfigApi+"user.php?action=set_name&value="+value,{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetCompanyName(callback)
+    // {
+    //   axios.post(config.ConfigApi+"user.php?action=get_specific",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetProjects(callback)
+    // {
+    //     var options = config.projects.connection_option;
+    //     options.url = config.projects.link_repos;
+    //     axios.request(options);
+    //     axios.request(options).then(function (response) {
+    //         callback(response.data);
+    //       }).catch(function (error) {
+    //         callback(error);
+    //       });
+    // },
+    // GetProjectDescription(full_name,callback)
+    // {
+    //     var options= new Object();
+    //     options.url = 'https://raw.githubusercontent.com/'+full_name+'/main/description.md';
+    //     axios.request(options);
+    //     axios.request(options).then(function (response) {
+    //         callback(response.data);
+    //       }).catch(function (error) {
+    //         callback(error);
+    //       });
+    // },
+    // GetProjectVersion(full_name,callback)
+    // {
+    //     var options = config.projects.connection_option;
+    //     options.url = 'https://api.github.com/repos/'+full_name+'/releases/latest';
+    //     axios.request(options);
+    //     axios.request(options).then(function (response) {
+    //         callback(response.data.name);
+    //       }).catch(function (error) {
+    //         callback(error);
+    //       });
+    // },
+    // GetProject(id,callback)
+    // {
+    //     var options = config.projects.connection_option;
+    //     options.url = config.projects.link_repos;
+    //     axios.request(options);
+    //     axios.request(options).then(function (response) {
+    //         callback(response.data[id]);
+    //       }).catch(function (error) {
+    //         callback(error);
+    //       });
+    // },
+    // GetReleases(full_name,callback)
+    // {
+    //     var options = config.projects.connection_option;
+    //     options.url = 'https://api.github.com/repos/'+full_name+'/releases';
+    //     axios.request(options);
+    //     axios.request(options).then(function (response) {
+    //         callback(response.data);
+    //       }).catch(function (error) {
+    //         callback(error);
+    //       });
+    // },
+    // GetCommits(full_name,callback)
+    // {
+    //     var options = config.projects.connection_option;
+    //     options.url = 'https://api.github.com/repos/'+full_name+'/commits';
+    //     axios.request(options);
+    //     axios.request(options).then(function (response) {
+    //         callback(response.data);
+    //       }).catch(function (error) {
+    //         callback(error);
+    //       });
+    // },
+    // GetDefaultCV(callback)
+    // {
+
+    //   axios.post(config.ConfigApi+"cv.php?action=get_default",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetUserGet(callback)
+    // {
+    //   axios.post(config.ConfigApi+"user.php?action=get_specific",{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetServices(callback)
+    // {
+    //   axios.get(config.ConfigApi+"services/get",{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // CheckService(link,callback)
+    // {
+    //   axios.get(config.ConfigApi+link,{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetModules(callback)
+    // {
+    //   axios.post(config.ConfigApi+'modules.php?action=get',{ body:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetAdminSecurity(callback,password)
+    // {
+    //   axios({
+    //     method: 'post',
+    //     url: config.ConfigApi+'user/admin',
+    //     data: qs.stringify({
+    //       token: Cookies.get('token'),
+    //       password: password[0]
+    //     }),
+    //     headers: { "Content-Type": "application/x-www-form-urlencoded" }
+    //   }).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});;
+    //   // axios.post(config.ConfigApi+'user/admin',{token:Cookies.get('token'),password:password}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetSpecificModules(callback,modules)
+    // {
+    //   axios.get(config.ConfigApi+'modules/'+modules,{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetAdminAlreadyLogged(callback)
+    // {
+    //   axios.get(config.ConfigApi+'user/admin/access',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // GetAdminConfig(callback)
+    // {
+    //   axios.get(config.ConfigApi+'user/admin/config',{ params:{token:Cookies.get('token')}}).then(function(response) {callback(response);}).catch(function(error){callback(error.response)});
+    // },
+    // CheckToken()
+    // {
+    //   return Cookies.get('token').length >0;
+    // }
     
   },
   ApiResponse:

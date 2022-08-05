@@ -9,13 +9,13 @@ class Home extends ApiComponent
 {
     Start()
     {
-        this.AddRequest(libraryApi.ApiRequest.GetCompanyName);
+        this.AddRequest(libraryApi.ApiRequest.getCurrentUser);
         this.StartRequest();
     }
 
     Success(data)
     {
-
+        console.log(data);
         return (
             <div id="Home">
                <ChangeName value={data[0].response[0].name}/>          
@@ -32,16 +32,6 @@ class Home extends ApiComponent
     }
 
 
-   Success(data)
-   {
-    return(<div id='Home'>
-        <span className='WelcomeText'>WITAJ 
-            <span className='NextText'>{data[0].response[0].name}</span>
-            <span className='NextText'></span>
-        </span>
-
-    </div>)
-   }
 
 }
 function ChangeName(props)

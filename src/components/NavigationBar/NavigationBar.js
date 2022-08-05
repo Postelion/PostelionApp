@@ -10,7 +10,7 @@ class NavigationBar extends ApiComponent{
 
     Start()
     {
-        this.AddRequest(libraryApi.ApiRequest.GetModules);
+        this.AddRequest(libraryApi.ApiRequest.getCurrentModules);
         this.StartRequest();
     }
 
@@ -28,7 +28,6 @@ class NavigationBar extends ApiComponent{
     }
     Success(data)
     {
-        console.log(data);
         return(
             
             <div id="Navigation_bar">

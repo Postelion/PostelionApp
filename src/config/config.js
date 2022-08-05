@@ -4,6 +4,6 @@ export default {
 
 
     //ConfigApi
-    ConfigApi:'https://postelion.pl/api/',
+    ConfigApi:'localhost:3001',
 
 }
