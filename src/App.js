@@ -12,27 +12,29 @@ import Panel from './pages/Panel/Panel';
 import CV from './pages/CV/CV';
 import Login from './pages/Login/Login';
 import Admin from './pages/Admin/Admin';
-import Test from './pages/test';
-import Kalkulator from './pages/Mini kalkulator/kalkulator';
 import AdminPanel from './pages/Admin/AdminPanel/AdminPanel';
+import Messages from './pages/Messages/Messages'
+
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 function App() {
   libraryTheme.ThemeInit();
 return (
   <div className="App">
+    <ParallaxProvider>
       <Routes>
         <Route path="/login/:token" element={ <Login/> }/>
         <Route path="/" element={ <Home/> } />
         <Route path="/cv" element={ <CV customState="{CompanyName:''}"/> } />
         <Route path="/projects" element={ <Project/> } />
+        <Route path="/messages" element={ <Messages/> } />
         {/*<Route path="/projects/:id" element={ <ProjectView/> } />
         <Route path="/panel" element={ <Panel/> }/>
         <Route path="/admin" element={ <Admin/> }/>
-        <Route path="/admin/panel" element={ <AdminPanel/> }/>
-        <Route path="/test" element={ <Test/> }/>
-        <Route path='/kalkulator' element={<Kalkulator/>}/>
-        <Route path='*' element={ <Error/> } /> */}
+        <Route path="/admin/panel" element={ <AdminPanel/> }/> */}
+        <Route path='*' element={ <Error/> } />
       </Routes>
+      </ParallaxProvider>
       <NavigationBar/>
     </div>);
 

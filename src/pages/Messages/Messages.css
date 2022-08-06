@@ -1,0 +1,76 @@
+#Messages{
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 200px;
+    top:25px;
+    right:25px;
+    bottom:25px;
+    left:100px;
+}
+#Messages .values{
+    position: relative;
+
+
+}
+#Messages .values
+{
+    background-color: var(--NavBarColor);
+    margin: 25px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    border-radius: 25px;
+}
+#Messages .inputValue{
+    position: relative;
+    display: grid;
+
+}
+#Messages .inputValue > div{
+    background-color: var(--NavBarColor);
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    margin: 25px;
+}
+#Messages .inputValue > div > textarea{
+    outline: none;
+    border: none;
+    margin: 15px;
+    resize: none;
+    overflow:hidden;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: transparent;
+    font-size: 20px;
+    color:var(--FontColor);
+    font-family: Montserrat;
+    text-align: left;
+
+}
+#Messages .inputValue > div > textarea::placeholder {
+    font-family: Montserrat;
+    text-align: left;
+    opacity: .5;
+}
+#Messages .inputValue .send
+{
+    background-color: transparent;
+    position: relative;
+    margin: 0 auto;
+    width: 60px;
+    top:45px;
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#Messages .inputValue .send:hover
+{
+
+    background-color: var(--NavBarSecondColor);
+}
+#Messages .inputValue .send svg
+{
+    position: relative;
+    top:15px;
+}

@@ -21,5 +21,25 @@ body {
   user-select: none;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--NavBarColor);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--FontColor);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--FontColor);
+}
+
 
 

@@ -3,6 +3,8 @@ import './Project.css'; //CSS
 import libraryApi from '../../lib/Api';
 import Loading from '../../components/Loading/Loading';
 import {ApiComponent} from '../../lib/Classes';
+import { Parallax,useParallax } from 'react-scroll-parallax';
+import { speed } from 'jquery';
 
 class Project extends ApiComponent
 {
@@ -15,15 +17,17 @@ class Project extends ApiComponent
 
     Success(data)
     {
+        
         if(data[0].response!=null)
         {
             return (
                 <div id="Project">
                     {
                         data[0].response.map((data,key) =>(
-                          <ProjectView props={data} key={key}/>  
+                            <Parallax  easing={[0,1.15,1,1.02]} opacity={[-10,2]}><ProjectView data={data} index={key} key={key}/> </Parallax>
                         ))
                     } 
+
                 </div>
             )
         }
@@ -41,39 +45,25 @@ class Project extends ApiComponent
 
 function ProjectView(props)
 {
-    console.log(props.props.additionalData)
-    let main_picture;
-    let width='250px';
-    let height='250px';
-    let description = '';
 
-    for(let i=0;i<props.props.additionalData.length;i++)
+    if(props.index==0)
     {
-        switch(props.props.additionalData[i].name)
-        {
-            case "main_picture":
-                main_picture =props.props.additionalData[i].value;
-            break;
-            case "width":
-                width =props.props.additionalData[i].value;
-            break;
-            case "height":
-                height =props.props.additionalData[i].value;
-            break;
-            case "description":
-                description =props.props.additionalData[i].value;
-            break;
-        }
+        return (
+                <div className='ProjectView'>
+            
+                    <div className='html' style={{top:'0px'}}  dangerouslySetInnerHTML={{ __html: props.data.html }}></div>
+                </div>
+        )
     }
+    else {
+        return (
 
-    return (
-        <div className='ProjectView' style={{width:width,height:height}}>
-            <div className='picture' style={{backgroundImage:'url("'+main_picture+'")'}}>
+            <div className='ProjectView'>
+                <div className='html'  dangerouslySetInnerHTML={{ __html: props.data.html }}></div>
             </div>
-            <span className='title'>{props.props.name}</span>
-            <div className='description'  dangerouslySetInnerHTML={{ __html: description }}></div>
-        </div>
-    )
+            
+        )  
+    }
 }
 
 export default Project;

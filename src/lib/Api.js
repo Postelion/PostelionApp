@@ -91,7 +91,25 @@ export default
     {
       var config = {
         method: 'get',
-        url: ApiIP+'/projects/',
+        url: ApiIP+'/projects',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token')
+        }
+      };
+      
+      axios(config)
+      .then(function (response) {
+        if(callback!=null)callback(response);
+      })
+      .catch(function (error) {
+        if(callback!=null)callback(error);
+      });
+    },
+    getMessages(callback)
+    {
+      var config = {
+        method: 'get',
+        url: ApiIP+'/messages',
         headers: { 
           'Authorization': 'Bearer '+ cookies.get('token')
         }
