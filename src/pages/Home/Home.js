@@ -15,7 +15,6 @@ class Home extends ApiComponent
 
     Success(data)
     {
-        console.log(data);
         return (
             <div id="Home">
                <ChangeName value={data[0].response[0].name}/>          
@@ -44,7 +43,7 @@ function ChangeName(props)
     const save = () =>
     {
         SetValuesStat(InputRef.current.value);
-        libraryApi.ApiRequest.SetCompanyName(null,InputRef.current.value);
+        libraryApi.ApiRequest.setCurrentUser(null,InputRef.current.value);
     }
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {

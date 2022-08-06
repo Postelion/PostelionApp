@@ -3,7 +3,7 @@ import configApi from '../config/config';
 import cookies from 'js-cookie';
 import qs from 'qs';
 
-const ApiIP = 'http://localhost:3001'
+const ApiIP = 'http://192.168.1.12:3001'
 
 export default
 {
@@ -23,7 +23,7 @@ export default
         callback(response);
       })
       .catch(function (error) {
-        console.log(error);
+        callback(error);
       });
       
     },
@@ -42,7 +42,67 @@ export default
         callback(response);
       })
       .catch(function (error) {
-        console.log(error);
+        callback(error);
+      });
+    },
+    setCurrentUser(callback,name)
+    {
+      var data = qs.stringify({
+        'name': name
+      });
+      var config = {
+        method: 'post',
+        url: ApiIP+'/user/current',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token'), 
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data : data
+      };
+      
+      axios(config)
+      .then(function (response) {
+        if(callback!=null)callback(response);
+      })
+      .catch(function (error) {
+        if(callback!=null)callback(error);
+      });
+      
+    },
+    getDefaultCv(callback)
+    {
+      var config = {
+        method: 'get',
+        url: ApiIP+'/cv/default',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token')
+        }
+      };
+      
+      axios(config)
+      .then(function (response) {
+        if(callback!=null)callback(response);
+      })
+      .catch(function (error) {
+        if(callback!=null)callback(error);
+      });
+    },
+    getProjects(callback)
+    {
+      var config = {
+        method: 'get',
+        url: ApiIP+'/projects/',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token')
+        }
+      };
+      
+      axios(config)
+      .then(function (response) {
+        if(callback!=null)callback(response);
+      })
+      .catch(function (error) {
+        if(callback!=null)callback(error);
       });
     }
 

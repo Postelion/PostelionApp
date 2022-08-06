@@ -21,7 +21,7 @@ class CV extends ApiComponent
     }
     Start()
     {
-        this.AddRequest(library.ApiRequest.GetDefaultCV);
+        this.AddRequest(library.ApiRequest.getDefaultCv);
         this.StartRequest();
     }
     NoAuth()
@@ -35,6 +35,7 @@ class CV extends ApiComponent
     }
     Success(data)
     {
+        console.log(data);
         this.CompanyName =data[0].response[6][0].name;
 
             return (

@@ -23,9 +23,9 @@ return (
       <Routes>
         <Route path="/login/:token" element={ <Login/> }/>
         <Route path="/" element={ <Home/> } />
-        {/*<Route path="/CV" element={ <CV customState="{CompanyName:''}"/> } />
+        <Route path="/cv" element={ <CV customState="{CompanyName:''}"/> } />
         <Route path="/projects" element={ <Project/> } />
-        <Route path="/projects/:id" element={ <ProjectView/> } />
+        {/*<Route path="/projects/:id" element={ <ProjectView/> } />
         <Route path="/panel" element={ <Panel/> }/>
         <Route path="/admin" element={ <Admin/> }/>
         <Route path="/admin/panel" element={ <AdminPanel/> }/>
