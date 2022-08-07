@@ -24,7 +24,7 @@ class Project extends ApiComponent
                 <div id="Project">
                     {
                         data[0].response.map((data,key) =>(
-                            <Parallax  easing={[0,1.15,1,1.02]} opacity={[-10,2]}><ProjectView data={data} index={key} key={key}/> </Parallax>
+                            <Parallax  easing={[0,1.15,1,1.02]} opacity={[-10,2]} key={key}><ProjectView data={data} index={key} /> </Parallax>
                         ))
                     } 
 

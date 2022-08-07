@@ -122,6 +122,29 @@ export default
       .catch(function (error) {
         if(callback!=null)callback(error);
       });
+    },
+    setSendMessages(callback,value)
+    {
+      var data = qs.stringify({
+        'value': value
+      });
+      var config = {
+        method: 'post',
+        url: ApiIP+'/messages/send',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token'), 
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data : data
+      };
+      
+      axios(config)
+      .then(function (response) {
+        if(callback!=null)callback(response);
+      })
+      .catch(function (error) {
+        if(callback!=null)callback(error);
+      });
     }
 
     // SetCompanyName(callback,value)

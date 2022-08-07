@@ -67,6 +67,7 @@ export const ApiComponent = class ApiComponentClass extends React.Component
        }
        else
        {
+            
             if(this.requests.some(e => e.status===403))
             {
                 return (this.NoAuth());
@@ -78,7 +79,8 @@ export const ApiComponent = class ApiComponentClass extends React.Component
                     return (this.Error(this.requests));
                 }
                 else {
-                    return (this.Success(this.requests));
+                    try{return (this.Success(this.requests));}
+                    catch {return (this.Error(this.requests));}
                 }
             }
         }
