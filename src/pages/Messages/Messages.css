@@ -9,12 +9,42 @@
     overflow: hidden;
 }
 
+#Messages .options
+{
+    background-color: var(--NavBarColor);
+    margin: 25px;
+    padding: 25px;
+    grid-template-rows: repeat(5, 1fr);
+    display: grid;
+    gap:20px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    border-radius: 0px 25px 25px 0px;
+
+}
+
+#Messages .options .optionView
+{
+    color:var(--FontColor);
+    background-color: var(--Background);
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
 #Messages .values
 {
     background-color: var(--NavBarColor);
     margin: 25px;
     box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
     border-radius: 25px 0px 0px 25px;
+    overflow: auto;
+}
+
+#Messages .optionsMessage
+{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 350px;
     overflow: auto;
 }
 #Messages .values > div

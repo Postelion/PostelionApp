@@ -69,14 +69,23 @@ function AllMessages(props)
 
     return (
         <div id="Messages">
-            <div className="values">
-                <div ref={allMesagesDiv}>
-                        {
-                            allMessages.map((data,key) =>(
-                                <Message date={data.date} value={data.value} sender={data.sender} receiver={data.received} key={key}/>
-                            ))
-                        } 
-            </div>
+            <div className='optionsMessage'>
+                <div className="values">
+                    <div ref={allMesagesDiv}>
+                            {
+                                allMessages.map((data,key) =>(
+                                    <Message date={data.date} value={data.value} sender={data.sender} receiver={data.received} key={key}/>
+                                ))
+                            } 
+                    </div>
+                </div>
+                <div className='options'>
+                        <Option/>
+                        <Option/>
+                        <Option/>
+                        <Option/>
+                        <Option/>
+                </div>
             </div>
             <div className="inputValue">
                 <div>
@@ -110,6 +119,14 @@ function Message(props)
         <span className='date' style={style2}>{dateString}</span>
         <span className='valueText' style={style2}>{props.value}</span>
         <span className='author' style={style2}>{props.sender}</span>
+    </div>)
+}
+
+function Option(props)
+{
+    return (
+    <div className='optionView'>
+        Umów spotkanie
     </div>)
 }
 
