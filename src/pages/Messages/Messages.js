@@ -1,12 +1,11 @@
-import React,{useEffect,useRef}from 'react'; //React
+import React,{useEffect,useRef, useState}from 'react'; //React
 import './Messages.css'; //CSS
 import libraryApi from '../../lib/Api';
 import Loading from '../../components/Loading/Loading';
+import * as Dialog from '../../components/Dialog/Dialog';
 import {ApiComponent} from '../../lib/Classes';
 import libraryTheme from '../../lib/Theme';
 import { format } from "date-fns";
-import { BsWindowSidebar } from 'react-icons/bs';
-import { render } from '@testing-library/react';
 
 class Project extends ApiComponent
 {
@@ -22,6 +21,14 @@ class Project extends ApiComponent
         
         return(
                     <AllMessages data={data[0].response}/>
+        )
+    }
+    Loading()
+    {
+        return (
+            <div id="Messages">
+                <Loading/>
+            </div>
         )
     }
 
@@ -79,13 +86,7 @@ function AllMessages(props)
                             } 
                     </div>
                 </div>
-                <div className='options'>
-                        <Option/>
-                        <Option/>
-                        <Option/>
-                        <Option/>
-                        <Option/>
-                </div>
+                <Options/>
             </div>
             <div className="inputValue">
                 <div>
@@ -97,6 +98,17 @@ function AllMessages(props)
             </div>
         </div>
     )
+}
+
+function Options(props)
+{
+    const [option,setOption] = useState(0)
+        return (
+        <div className='options'>
+            <Option text='Umów spotkanie' icon='BsFileTextFill'/>
+            <FormMeet/>
+        </div>
+)
 }
 
 function Message(props)
@@ -126,8 +138,27 @@ function Option(props)
 {
     return (
     <div className='optionView'>
-        Umów spotkanie
+       
+        <div className='text'>{props.text}</div>
     </div>)
 }
+
+function FormMeet(props)
+{
+    return (<div className='optionView'>
+        <DateInput/>
+    </div>)
+}
+function DateInput(props)
+{
+    const DialogContext = React.useContext(Dialog.DialogContext);
+    const Icon = libraryTheme.GetIcon('BsFillCalendarCheckFill');
+    return(<div className='DateInput' onClick={()=>{Dialog.OpenDialogDate(DialogContext)}}>
+        <div>15:25 25.09.2012</div>
+        <div><Icon/></div>
+    </div>)
+}
+
+
 
 export default Project;

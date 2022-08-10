@@ -1,0 +1,42 @@
+.dialog-view
+{
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+}
+.dialog-view > .dialog-content
+{
+    min-height: 500px;
+    min-width: 400px;
+    margin: 0 auto;
+    display: grid;
+    position: relative;
+    background-color: var(--Background);
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    border-radius: 25px;
+
+}
+
+.dialog-view .close-button
+{
+    background-color: var(--NavBarColor);
+    color:var(--FontColor);
+    border-radius: 15px;
+    margin: 10px;
+    cursor:pointer;
+    padding: 15px;
+}
+.dialog-view .confirm-buttom
+{
+    background-color: var(--FontColor);
+    color:var(--NavBarColor);
+    border-radius: 15px;
+    margin: 10px;
+    cursor:pointer;
+    padding: 15px;
+}

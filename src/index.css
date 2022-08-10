@@ -10,8 +10,6 @@
   font-family: "Montserrat";
   src: url(font/Montserrat-Medium.ttf);
 }
-
-
 html{margin:0px}
 body {
  background-color: var(--Background);
@@ -20,26 +18,27 @@ body {
   font-family: Montserrat;
   user-select: none;
 }
-
-/* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   background: var(--NavBarColor);
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--FontColor);
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--FontColor);
 }
 
-
+.rows-2
+{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.columns-2
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 

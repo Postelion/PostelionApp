@@ -1,0 +1,149 @@
+.input-calendar
+{
+    background-color: var(--NavBarColor);
+    color:(--FontColor);
+    display: grid;
+    grid-template-rows: 80px 1fr;
+    margin: 10px;
+    border-radius: 15px;
+    color:var(--FontColor);
+}
+.input-calendar .input-calendar-year
+{
+
+    cursor:pointer;
+    margin: 5px;
+    font-family: Montserrat-ExtraBold;
+    font-size: 30px;
+}
+.input-calendar .input-calendar-month
+{
+    
+    cursor:pointer;
+    font-size: 20px;
+}
+
+.input-calendar-sy
+{
+    background-color: var(--NavBarColor);
+    display: grid;
+    margin: 10px;
+    color:var(--FontColor);
+    border-radius: 15px;
+}
+.input-calendar-sy .input-calendar-select-year
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
+}
+.input-calendar-sy .input-calendar-select-year .input-calendar-select-year-section
+{
+    margin: 15px;
+    background-color: var(--Background);
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 15px;
+}
+.input-calendar-sy .input-calendar-select-year .input-calendar-select-year-section:hover
+{
+    background-color: var(--FontColor);
+    color:var(--Background);
+}
+.input-calendar-sy .input-calendar-buttons
+{
+    color: white;
+    cursor: pointer;
+    color:var(--FontColor);
+    margin-top: 15px;
+    font-size: 35px;
+}
+
+.input-calendar-sm
+{
+    background-color: var(--NavBarColor);
+    display: grid;
+    margin: 10px;
+    color:var(--FontColor);
+    border-radius: 15px;
+}
+.input-calendar-sm .input-calendar-select-month
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.input-calendar-sm .input-calendar-select-month .input-calendar-select-month-section
+{
+    margin: 10px;
+    background-color: var(--Background);
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 15px;
+}
+.input-calendar-sm .input-calendar-select-month .input-calendar-select-month-section:hover
+{
+    background-color: var(--FontColor);
+    color:var(--Background);
+}
+
+.input-calendar-sd
+{
+    background-color: var(--NavBarColor);
+    display: grid;
+    margin: 10px;
+    border-radius: 15px;
+}
+.input-calendar-sd .input-calendar-select-day
+{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(6,1fr);
+}
+.input-calendar-sd .input-calendar-select-day .input-calendar-select-day-section
+{
+    margin: 5px;
+    background-color: var(--Background);
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 15px;
+}
+.input-calendar-sd .input-calendar-select-day .input-calendar-select-day-section:hover
+{
+    background-color: var(--FontColor);
+    color:var(--Background);
+}
+.input-calendar-sd .input-calendar-select-day .input-calendar-select-day-section-active
+{
+    margin: 5px;
+    background-color: var(--FontColor);
+    color:var(--Background);
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 15px; 
+}
+.input-calendar-sd .input-calendar-select-day .input-calendar-select-day-section-disable
+{
+    margin: 5px;
+    background-color: var(--Background);
+    opacity: .5;
+    display: grid;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 15px;
+}
+.input-calendar-sd .input-calendar-buttons
+{
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 35px;
+}

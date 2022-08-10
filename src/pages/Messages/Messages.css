@@ -8,13 +8,28 @@
     left:100px;
     overflow: hidden;
 }
-
+#Messages .DateInput
+{
+    background-color: var(--NavBarColor);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    margin: 15px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#Messages .DateInput svg{
+    position: relative;
+    top:1px;
+}
 #Messages .options
 {
     background-color: var(--NavBarColor);
     margin: 25px;
     padding: 25px;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 50px 1fr;
     display: grid;
     gap:20px;
     box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
@@ -26,10 +41,17 @@
 {
     color:var(--FontColor);
     background-color: var(--Background);
-    cursor: pointer;
+    position: relative;
     border-radius: 15px;
+    display: grid;
+    align-items: center;
 }
-
+#Messages .options .optionView .text
+{
+  
+    font-family: Montserrat-ExtraBold;
+    font-size: 20px;
+}
 
 #Messages .values
 {
@@ -55,11 +77,13 @@
     display: flex;
     flex-direction: column;
 }
+
 #Messages .inputValue{
     position: relative;
     display: grid;
 
 }
+
 #Messages .inputValue > div{
     background-color: var(--NavBarColor);
     box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
