@@ -2,10 +2,11 @@ import React,{useEffect,useRef, useState}from 'react'; //React
 import './Messages.css'; //CSS
 import libraryApi from '../../lib/Api';
 import Loading from '../../components/Loading/Loading';
-import * as Dialog from '../../components/Dialog/Dialog';
 import {ApiComponent} from '../../lib/Classes';
 import libraryTheme from '../../lib/Theme';
 import { format } from "date-fns";
+import DateInput from '../../components/Inputs/Date/InputDate';
+import ClockInput from '../../components/Inputs/Clock/InputClock';
 
 class Project extends ApiComponent
 {
@@ -61,17 +62,8 @@ function AllMessages(props)
         }
         inputText.current.value = '';
     }
-    const getMessages = () =>
-    {
-        libraryApi.ApiRequest.getMessages((data)=>
-        {
-            console.log(data);
-        });
-    }
     useEffect(()=>{
         scrollToBottom();
-
-        // const interval = setInterval(() => getMessages(), 2500);
     });
 
     return (
@@ -145,17 +137,13 @@ function Option(props)
 
 function FormMeet(props)
 {
+    let date = {};
+    let clock ={};
     return (<div className='optionView'>
-        <DateInput/>
-    </div>)
-}
-function DateInput(props)
-{
-    const DialogContext = React.useContext(Dialog.DialogContext);
-    const Icon = libraryTheme.GetIcon('BsFillCalendarCheckFill');
-    return(<div className='DateInput' onClick={()=>{Dialog.OpenDialogDate(DialogContext)}}>
-        <div>15:25 25.09.2012</div>
-        <div><Icon/></div>
+        <div className='formMeet'>
+            <DateInput/>
+            <ClockInput/>
+        </div>
     </div>)
 }
 

@@ -16,7 +16,7 @@ function Calendar (props)
     const LeftArrow = libraryTheme.GetIcon('AiOutlineArrowLeft');
     const RightArrow = libraryTheme.GetIcon('AiOutlineArrowRight');
     const firstDayOfWeekMonth = new Date(state.year, state.month, 1).getDay()==0?7:new Date(state.year, state.month, 1).getDay();
-
+    
     const numberOfDays = new Date(state.year, state.month+1, 0).getDate();
     switch(state.state)
     {
@@ -28,8 +28,8 @@ function Calendar (props)
             return (
                 <div className='input-calendar'>
                     <div className='input-calendar-info'>
-                        <div className='input-calendar-year' onClick={()=>{setState({state:'select-year',year:state.year,month:state.month,day:state.day,hour:state.hour,minutes:state.minutes,yearPage:state.yearPage,monthPage:state.monthPage,dayPage:state.dayPage})}}>{state.year}</div>
-                        <div className='input-calendar-month'>{months[state.month]}</div>
+                        <div className='input-calendar-year' onClick={()=>{setState({state:'select-year',year:state.year,month:state.month,day:state.day,hour:state.hour,minutes:state.minutes,yearPage:0,monthPage:state.monthPage,dayPage:state.dayPage})}}>{state.year}</div>
+                        <div className='input-calendar-month' onClick={()=>{setState({state:'select-month',year:state.year,month:state.month,day:state.day,hour:state.hour,minutes:state.minutes,yearPage:0,monthPage:state.monthPage,dayPage:state.dayPage})}}>{months[state.month]}</div>
                     </div>
                     <div className='input-calendar-sd'>
                         <div className='input-calendar-select-day'>
@@ -66,7 +66,7 @@ function Calendar (props)
                         <div></div>
                         <div className='input-calendar-buttons' onClick={()=>{if(state.yearPage<10)setState({state:'select-year',year:state.year,month:state.month,day:state.day,hour:state.hour,minutes:state.minutes,yearPage:state.yearPage+1,monthPage:state.monthPage,dayPage:state.dayPage})}}><RightArrow/></div>
                         {[...Array(9)].map((x, i) =>
-                            <div className='input-calendar-select-year-section' key={i} onClick={()=>{SelectYear(state.year +i-4+(state.yearPage*9))}}><div>{state.year +i-4+(state.yearPage*9)}</div></div>
+                            <div className='input-calendar-select-year-section' key={i} onClick={()=>{SelectYear(parseInt(state.year) +i-4+(state.yearPage*9))}}><div>{parseInt(state.year) +i-4+(state.yearPage*9)}</div></div>
                         )}
                     </div>
                 </div>

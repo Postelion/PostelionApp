@@ -1,6 +1,7 @@
 import './Dialog.css';
 import React from "react";
 import Calendar from '../Calendar/Calendar'
+import Clock from '../Clock/Clock'
 
 function Dialog (props)
 {
@@ -21,24 +22,25 @@ export const DialogContext = React.createContext();
 
 export const OpenDialogDate = (dialogContext,StartValue,onSuccess,onExit) =>
 {
+    let result;
     const CloseDialogFunc = () =>{
         CloseDialog(dialogContext)
     }
     const ConfirmDialogFunc = () =>{
-        onSuccess();
+        onSuccess(result);
         CloseDialog(dialogContext);
     }
     const HtmlContent = () =>
     {
         const func = (date) =>
         {
-            console.log(date);
+            result =date;
         }
         return (
             <div style={{display:'grid',gridTemplateRows:'1fr 70px'}}>
                 <div style={{display:'grid'}}>
                     <div style={{display:'grid'}}>
-                        <Calendar onChange={(e)=>{func(e)}} />
+                        <Calendar year={StartValue.year} month={StartValue.month} day={StartValue.day} onChange={(e)=>{func(e)}} />
                     </div>
                 </div>
                 <div className='columns-2'>
@@ -48,6 +50,38 @@ export const OpenDialogDate = (dialogContext,StartValue,onSuccess,onExit) =>
             </div>)
     }
     dialogContext.setDialog_status({status:"date",content:HtmlContent()});
+}
+export const OpenDialogClock = (dialogContext,StartValue,onSuccess,onExit) =>
+{
+    let result;
+    const CloseDialogFunc = () =>{
+        CloseDialog(dialogContext)
+    }
+    const ConfirmDialogFunc = () =>{
+        onSuccess(result);
+        CloseDialog(dialogContext);
+    }
+    const HtmlContent = () =>
+    {
+        const func = (clock) =>
+        {
+            result =clock;
+        }
+        return (
+            <div style={{display:'grid',gridTemplateRows:'1fr 70px'}}>
+                <div style={{display:'grid'}}>
+                    <div style={{display:'grid'}}>
+                        
+                        <Clock hour={StartValue.hour} minutes={StartValue.minutes} onChange={(e)=>{func(e)}} />
+                    </div>
+                </div>
+                <div className='columns-2'>
+                    <div className='close-button' onClick={()=>{CloseDialogFunc()}}>ZAMKNIJ</div>
+                    <div className='confirm-buttom' onClick={()=>{ConfirmDialogFunc()}}>ZATWIERDŹ</div>
+                </div>
+            </div>)
+    }
+    dialogContext.setDialog_status({status:"clock",content:HtmlContent()});
 }
 export const CloseDialog = (dialogContext) =>
 {

@@ -1,0 +1,60 @@
+.ClockView
+{
+  display: grid;
+  grid-template-rows: 50px 1fr;
+}
+.ClockView span
+{
+  display: block;
+  margin: 50px;
+  font-size: 25px;
+  font-family: Montserrat-ExtraBold;
+  height: 50px;
+}
+.Clock
+{
+    display: grid;
+    grid-template-columns: 100px 25px 100px;
+    gap: 25px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 75px;
+}
+.Clock .separator
+{
+    position: relative;
+    left:10px;
+}
+.Clock .inputValue
+{
+    width: 120px;
+    background-color: var(--NavBarColor);
+    height: 120px;
+    border-radius: 15px;
+    display: grid;
+}
+.Clock input{
+  
+  color: var(--FontColor);
+  font-size: 75px;
+  background-color: transparent;
+  font-family: Montserrat-ExtraBold;
+  display: grid;
+  margin: 10px;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  outline: none;
+  border: none;
+
+}
+
+.Clock input::-webkit-outer-spin-button,
+.Clock input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Clock input[type=number] {
+  -moz-appearance: textfield;
+}

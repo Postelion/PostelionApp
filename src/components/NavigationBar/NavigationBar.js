@@ -95,7 +95,7 @@ function Option(props)
             delay:150*(props.index+1)
     
         });
-    });
+    },[]);
     const click = ()=>{
         navigate(props.value);
     }
