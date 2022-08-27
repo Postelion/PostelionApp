@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import DateInput from '../../components/Inputs/Date/InputDate';
 import ClockInput from '../../components/Inputs/Clock/InputClock';
 import Text from '../../components/Inputs/Text/Text';
+import Button from '../../components/Inputs/Button/Button';
 
 class Project extends ApiComponent
 {
@@ -147,6 +148,8 @@ function FormMeet(props)
             <Text placeholder="Miasto" icon="ImOffice"/>
             <Text placeholder="Ulica" icon="BiCurrentLocation"/>
             <Text placeholder="Uwagi" icon="AiFillInfoCircle"/>
+            <div></div>
+            <div className='to_bottom'><Button text="ZATWIERDŹ" onClick="asd"/></div>
         </div>
     </div>)
 }

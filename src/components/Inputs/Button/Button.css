@@ -1,0 +1,16 @@
+.button_input
+{
+    background-color: var(--NavBarColor);
+    letter-spacing: 1px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    margin: 15px;
+    padding: 0px;
+    display: grid;
+    font-family: Montserrat-ExtraBold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

@@ -33,9 +33,8 @@
 
 #Messages .options .optionView .formMeet
 {
-    display: flex;
-    flex-direction: column;
-
+    display: grid;
+    grid-template-rows: repeat(6, 1fr)
 }
 #Messages .options .optionView .text
 {
@@ -161,4 +160,8 @@
     max-width: 1000px;
     padding-top: 5px;
     font-size: 20px;
+}
+#Messages .formMeet .to_bottom
+{
+    /* background-color:red; */
 }
