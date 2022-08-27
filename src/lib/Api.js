@@ -3,7 +3,7 @@ import configApi from '../config/config';
 import cookies from 'js-cookie';
 import qs from 'qs';
 
-const ApiIP = 'http://192.168.1.12:3001'
+const ApiIP = 'http://localhost:3001'
 
 export default
 {
