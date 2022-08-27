@@ -1,0 +1,38 @@
+.text_input
+{
+    background-color: var(--NavBarColor);
+    letter-spacing: 1px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    margin: 15px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.text_input svg
+{
+    font-size: 22px;
+    align-self: center;
+    margin: 0 auto;
+}
+.text_input input
+{
+    border: none;
+    outline:none;
+    background-color: transparent;
+    font-family: Montserrat;
+    max-width: 150px;
+    margin: 0 auto;
+    margin-left: 15px;
+    font-size: 17px;
+    color:var(--FontColor)
+}
+.text_input input::placeholder
+{
+    color: var(--FontColor);
+    opacity: .6;
+}

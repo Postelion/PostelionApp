@@ -2,6 +2,8 @@ import * as Iconsai  from "react-icons/ai";
 import * as Iconsbs  from "react-icons/bs";
 import * as Iconsmd  from "react-icons/md";
 import * as Iconsgr  from "react-icons/gr";
+import * as Iconsbi  from "react-icons/bi";
+import * as Iconsim  from "react-icons/im";
 import Cookies from 'js-cookie';
 
 const LightTheme = [
@@ -113,6 +115,8 @@ export default {
         if(Icon==null) Icon = (Iconsbs[name])
         if(Icon==null) Icon = (Iconsmd[name])
         if(Icon==null) Icon = (Iconsgr[name])
+        if(Icon==null) Icon = (Iconsbi[name])
+        if(Icon==null) Icon = (Iconsim[name])
         return Icon;
     }
 };

@@ -10,6 +10,7 @@
     grid-template-columns: 1fr 50px;
     padding-top: 10px;
     padding-bottom: 10px;
+    align-items: center;
 }
 .DateInput svg{
     position: relative;

@@ -7,6 +7,7 @@ import libraryTheme from '../../lib/Theme';
 import { format } from "date-fns";
 import DateInput from '../../components/Inputs/Date/InputDate';
 import ClockInput from '../../components/Inputs/Clock/InputClock';
+import Text from '../../components/Inputs/Text/Text';
 
 class Project extends ApiComponent
 {
@@ -143,6 +144,9 @@ function FormMeet(props)
         <div className='formMeet'>
             <DateInput/>
             <ClockInput/>
+            <Text placeholder="Miasto" icon="ImOffice"/>
+            <Text placeholder="Ulica" icon="BiCurrentLocation"/>
+            <Text placeholder="Uwagi" icon="AiFillInfoCircle"/>
         </div>
     </div>)
 }
