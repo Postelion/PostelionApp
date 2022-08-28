@@ -145,7 +145,33 @@ export default
       .catch(function (error) {
         if(callback!=null)callback(error);
       });
-    }    
+    } ,
+    setSendMessageMeet(callback,value)
+    {
+      var data = qs.stringify({
+        date:value.date.day + "."+ value.date.month + "."+value.date.year + " " + value.clock.hour + ":" + value.clock.minute,
+        city:value.city,
+        street:value.street,
+        remarks:value.remark
+      });
+      var config = {
+        method: 'post',
+        url: ApiIP+'/messages/send/meet',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token'), 
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data : data
+      };
+      
+      axios(config)
+      .then(function (response) {
+        if(callback!=null)callback(response);
+      })
+      .catch(function (error) {
+        if(callback!=null)callback(error);
+      });
+    } , 
   },
   ApiResponse:
   {

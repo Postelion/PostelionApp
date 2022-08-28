@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Dialog,{DialogContext} from './components/Dialog/Dialog';
+import Information,{InfoContext} from './components/Information/Information';
 import React,{ useState } from 'react';
 import libraryTheme from './lib/Theme';
 import Error from './pages/Error/Error';
@@ -16,6 +17,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 function App() {
   //Dialog States
   const [dialog_status, setDialog_status] = useState('none');
+  const [info_status, setInfo_status] = useState({text:''});
 
   //Initialize Theme
   libraryTheme.ThemeInit();
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <DialogContext.Provider value={{dialog:null,dialog_status,setDialog_status}}>
+      <InfoContext.Provider value={{info_status,setInfo_status}}>
       <div className="App">
         <ParallaxProvider>
               <Routes>
@@ -38,7 +41,9 @@ function App() {
         </ParallaxProvider>
         <NavigationBar/>
         <Dialog/>
+        <Information/>
       </div>
+      </InfoContext.Provider>
     </DialogContext.Provider>
   );
 }

@@ -4,6 +4,7 @@ import libraryApi from '../../lib/Api';
 import libraryTheme from '../../lib/Theme'
 import {ApiComponent} from '../../lib/Classes'
 import Loading from '../../components/Loading/Loading'
+import * as Information from '../../components/Information/Information';
 
 class Home extends ApiComponent
 {
@@ -39,11 +40,13 @@ function ChangeName(props)
     const [Status,SetStatus] = useState('text');
     const Icon = libraryTheme.GetIcon("MdEdit");
     const InputRef = useRef();
-
+    const InfoContextt = React.useContext(Information.InfoContext);
     const save = () =>
     {
         SetValuesStat(InputRef.current.value);
-        libraryApi.ApiRequest.setCurrentUser(null,InputRef.current.value);
+        libraryApi.ApiRequest.setCurrentUser(()=>{
+            Information.SetInfoError(InfoContextt,"Zmieniono nazwę");
+        },InputRef.current.value);
     }
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
@@ -67,5 +70,8 @@ function ChangeName(props)
             </div>)
     }
 }
-
+function Meets(props)
+{
+    
+}
 export default Home;

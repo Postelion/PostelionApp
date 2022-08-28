@@ -132,6 +132,7 @@
     font-size: 20px;
     color: var(--FontColor);
     text-align: left;
+    max-width: 75%;
     background-color: var(--Background);
     padding: 10px;
     display: flex;
@@ -161,7 +162,17 @@
     padding-top: 5px;
     font-size: 20px;
 }
-#Messages .formMeet .to_bottom
+#Messages .messageView .meetView
 {
-    /* background-color:red; */
+   background-color: var(--NavBarColor);
+   color:var(--BackgroundColor);
+   border-radius: 15px;
+   padding: 15px;
+   margin:10px;
+   box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+}
+
+#Messages .messageView .meetView .meet_header
+{
+    font-family: Montserrat-ExtraBold;
 }

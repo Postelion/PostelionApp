@@ -22,7 +22,9 @@ function DateInput(props)
         setDate({year:data.year,month:data.month,day:data.day});
         if(props.onChange!= undefined)
         props.onChange(data);
-    }
+    } 
+    useEffect(()=>{if(props.onChange!= undefined)
+        props.onChange({year:year,month:month,day:day});},[date]);
     return(<div className='DateInput' onClick={()=>{Dialog.OpenDialogDate(DialogContext,{year:date.year,month:date.month-1,day:date.day},onSuccess)}}>
         <div>{("0"+date.day).slice(-2)}.{("0"+date.month).slice(-2)}.{date.year}</div>
         <div><Icon/></div>
