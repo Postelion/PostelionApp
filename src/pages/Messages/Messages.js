@@ -139,17 +139,23 @@ function Option(props)
 
 function FormMeet(props)
 {
-    let date = {};
-    let clock ={};
+    let dataMeet = {
+        date : {},
+        clock : {},
+        city : "",
+        street : "",
+        remark :"",
+    }
+
     return (<div className='optionView'>
         <div className='formMeet'>
-            <DateInput/>
-            <ClockInput/>
-            <Text placeholder="Miasto" icon="ImOffice"/>
-            <Text placeholder="Ulica" icon="BiCurrentLocation"/>
-            <Text placeholder="Uwagi" icon="AiFillInfoCircle"/>
+            <DateInput onChange={(e)=>{dataMeet.date = e}}/>
+            <ClockInput onChange={(e)=>{dataMeet.clock = e}}/>
+            <Text placeholder="Miasto" icon="ImOffice" onChange={(e)=>{dataMeet.city = e}}/>
+            <Text placeholder="Ulica" icon="BiCurrentLocation" onChange={(e)=>{dataMeet.street = e}}/>
+            <Text placeholder="Uwagi" icon="AiFillInfoCircle" onChange={(e)=>{dataMeet.remark = e}}/>
             <div></div>
-            <div className='to_bottom'><Button text="ZATWIERDŹ" onClick="asd"/></div>
+            <div className='to_bottom'><Button text="ZATWIERDŹ" onClick={(e)=>{console.log(dataMeet)}}/></div>
         </div>
     </div>)
 }
