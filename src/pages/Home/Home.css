@@ -1,31 +1,86 @@
 #Home
 {
     position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    gap:50px;
+    padding: 25px;
     left:100px;
 }
+#Home .home_widget_meets
+{
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    background-color: var(--NavBarColor);
+    border-radius: 15px;
+}
+#Home .home_widget_meets .widget_content
+{
+    color: var(--FontColor);
+    margin: 25px;
+    text-align: left;
+    font-size: 20px;
+}
+#Home .home_widget_meets .widget_content > div
+{
+    margin: 5px;
+}
+#Home .home_widget_meets .widget_meets_decline
+{
+    margin-top: 25px;
+    text-align: center;
+    display: block;
+    background-color: var(--FontColor);
+    color:var(--Background);
+    padding: 10px;
+    border-radius: 15px;
+    font-family: Montserrat-ExtraBold;
+}
+#Home .home_widget_meets .widget_title .widget_meet_title_navigation
+{
+    display: flex;
+    transform: translateY(1px);
+    gap: 20px;
+    margin-left: 25px;
+}
+#Home .widget_title
+{
+    color: var(--FontColor);
+    font-size: 20px;
+    text-align: left;
+    display: flex;
+    font-family: Montserrat-ExtraBold;
+    margin: 10px 10px 10px 20px;
+}
+#Home .widget_title_info
+{
+    font-size: 15px;
+    margin-left: 15px;
+    transform: translateY(1px);
+}
+
 #Home .NameCompany
 {
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+    background-color: var(--NavBarColor);
+    border-radius: 15px;
     font-size: 35px;
     font-family: Montserrat-ExtraBold;
-    cursor: pointer;
     display: flex;
+    flex-direction: column;
+    text-align: left;
     justify-content: center;
     color: var(--FontColor);
-    align-items: center;
 
 }
-#Home .NameCompany .valueName
-{
-    max-width: 500px;
-    overflow-wrap: break-word;
-}
-#Home .NameCompany .IconEdit
-{
-    margin-left: 10px;
-    margin-right: 10px;
-}
+
 #Home .NameCompany input
 {
+    margin: 10px 10px 10px 10px;
     text-align: center;
     font-size: 35px;
     color:var(--FontColor);
