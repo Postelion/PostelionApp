@@ -8,6 +8,24 @@ const ApiIP = 'http://localhost:3001'
 export default
 {
   ApiRequest:{
+    login(callback)
+    {
+      var config = {
+        method: 'get',
+        url: ApiIP+'/user/login',
+        headers: { 
+          'Authorization': 'Bearer '+ cookies.get('token')
+        }
+      };
+      
+      axios(config)
+      .then(function (response) {
+        callback(response);
+      })
+      .catch(function (error) {
+        callback(error.response);
+      });
+    },
     getCurrentModules(callback)
     {
       var config = {
@@ -145,7 +163,7 @@ export default
       .catch(function (error) {
         if(callback!=null)callback(error);
       });
-    } ,
+    },
     setSendMessageMeet(callback,value)
     {
       var data = qs.stringify({
@@ -171,7 +189,7 @@ export default
       .catch(function (error) {
         if(callback!=null)callback(error);
       });
-    } , 
+    }, 
     getMeets(callback)
     {
       var config = {
@@ -189,7 +207,8 @@ export default
       .catch(function (error) {
         if(callback!=null)callback(error);
       });
-    }
+    },
+
   },
   ApiResponse:
   {

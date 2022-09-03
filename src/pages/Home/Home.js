@@ -102,7 +102,7 @@ function Meets(props)
 
     return (<div className='home_widget_meets'>
         {meetsData.datas!=null &&
-            <span className='widget_title'>SPOTKANIA {meetsData.datas.length>1&& meetsData.page+1 +'/'+meetsData.datas.length} {meetsData.datas.length>1&& <span className='widget_meet_title_navigation' ><div className='clickable'  onClick={()=>{if(meetsData.page!=0) prevPage()}}><IconPrev/></div><div className='clickable' onClick={()=>{if(meetsData.page+1 != meetsData.datas.length) nextPage()}}><IconNext/></div></span>}</span>
+            <span className='widget_title ' >SPOTKANIA {meetsData.datas.length>1&& meetsData.page+1 +'/'+meetsData.datas.length} {meetsData.datas.length>1&& <span className='widget_meet_title_navigation' ><div className='clickable'  onClick={()=>{if(meetsData.page!=0) prevPage()}}><IconPrev/></div><div className='clickable' onClick={()=>{if(meetsData.page+1 != meetsData.datas.length) nextPage()}}><IconNext/></div></span>}</span>
         }       
         {meetsData.datas!=null &&
         <div className='widget_content'>
@@ -113,6 +113,7 @@ function Meets(props)
             <div >{meetsData.datas[meetsData.page].city}</div>
             <div >{meetsData.datas[meetsData.page].street}</div>
             {meetsData.datas[meetsData.page].remarks!=undefined?<div >{meetsData.datas[meetsData.page].remarks}</div>:null}
+            <br/>
             <div >Status: {meetsData.datas[meetsData.page].confirm_status== 0?'Oczekuje na akceptacje':meetsData.datas[meetsData.page].confirm_status== 1?'Zaakceptowano':'Brak akceptacji'}</div>
             <div ><span className='widget_meets_decline shadow clickable' onClick={()=>{declineMeet()}}>ODWOŁAJ</span></div>
         </div>

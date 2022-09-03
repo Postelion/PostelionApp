@@ -62,7 +62,6 @@
 #Messages .values > div
 {
     padding: 25px;
-    /* margin:25px; */
     gap: 18px;
     display: flex;
     flex-direction: column;

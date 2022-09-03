@@ -12,12 +12,14 @@ function Loading(props)
             delay:250
         });
 
-      });
+      },[]);
 
  return(
      <div className="loading">
          <img/>
          <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+         <br/>
+         <div>{props.text}</div>
      </div>
  )
 }
